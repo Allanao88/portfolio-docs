@@ -6,6 +6,7 @@ Painel centralizado para monitorização de infraestrutura de bases de dados (My
 
 O projeto adota uma arquitetura modular, separando as responsabilidades entre Frontend (Vanilla JS/HTML/CSS) e Backend (FastAPI). Esta estrutura facilita a manutenção, o debug e a escalabilidade de novas integrações.
 
+```text
 meu_painel_dba/
 ├── .env                     # Variáveis de ambiente com credenciais (não versionado)
 ├── requirements.txt         # Dependências Python (FastAPI, conectores de BD)
@@ -28,6 +29,7 @@ meu_painel_dba/
     ├── airflow.html         # Visualização do Airflow
     ├── redmine.html         # Visualização do RedMine
     └── iris.html            # Visualização do Íris
+```
 
 ⚙️ Configuração do Ambiente Local
 1 - Aceda à pasta do projeto:
