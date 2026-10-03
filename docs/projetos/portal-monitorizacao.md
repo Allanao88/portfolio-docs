@@ -1,4 +1,4 @@
-# Portal de Monitorização DBA - 2CX
+# Portal de Monitorias Online
 
 Painel centralizado para monitorização de infraestrutura de bases de dados (MySQL, SQL Server), pipelines de dados (Apache Airflow), gestão de tickets (RedMine) e produtividade operacional (Íris).
 
