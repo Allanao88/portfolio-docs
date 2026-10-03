@@ -12,7 +12,7 @@ Especialista em gestão de bases de dados, automação de infraestrutura e const
 * **Engenharia & Automação:** Python, Apache Airflow, Docker, Git, CI/CD (GitHub Actions).
 * **Infraestrutura:** Linux (Rocky Linux/CentOS), WSL2, Nginx.
 
-## 🚀 Sobre este Portefólio
+## 🚀 Sobre este Portfólio
 
 Este ambiente foi construído com uma arquitetura **Docs-as-Code** utilizando MkDocs e GitHub Actions. Aqui documento não apenas o código, mas a arquitetura, as decisões técnicas e a visão de negócio por trás dos meus projetos.
 
