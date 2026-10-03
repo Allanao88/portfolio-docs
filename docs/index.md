@@ -1,17 +1,19 @@
-# Welcome to MkDocs
+# Olá, sou o Allan 👋
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+**Database Administrator (DBA) & Engenheiro de Dados**
 
-## Commands
+Especialista em gestão de bases de dados, automação de infraestrutura e construção de *pipelines* de dados escaláveis. O meu foco é garantir a alta disponibilidade de sistemas críticos e transformar rotinas operacionais em código (Docs-as-Code, automações em Python e CI/CD).
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+---
 
-## Project layout
+## 🛠️ Stack Tecnológica
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* **Bases de Dados:** MariaDB, MySQL, PostgreSQL, SQL Server.
+* **Engenharia & Automação:** Python, Apache Airflow, Docker, Git, CI/CD (GitHub Actions).
+* **Infraestrutura:** Linux (Rocky Linux/CentOS), WSL2, Nginx.
+
+## 🚀 Sobre este Portefólio
+
+Este ambiente foi construído com uma arquitetura **Docs-as-Code** utilizando MkDocs e GitHub Actions. Aqui documento não apenas o código, mas a arquitetura, as decisões técnicas e a visão de negócio por trás dos meus projetos.
+
+👉 **Navegue pelo menu superior para explorar as documentações de arquitetura.**
