@@ -1,6 +1,6 @@
-site_name: Allan | Data Engineering & DBA Portfolio
+site_name: Allan Augusto | Data Engineering & DBA
 site_url: https://Allanao88.github.io/portfolio-docs/
-site_description: Portfólio Técnico de Engenharia de Dados e DBA
+site_description: Portefólio Técnico de Engenharia de Dados e DBA
 
 theme:
   name: material
@@ -33,10 +33,13 @@ extra:
       link: https://github.com/Allanao88
       name: Allan no GitHub
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/allan-augusto-carvalho-de-oliveira-102b985b/?isSelfProfile=true  # <-- Substitua pelo seu LinkedIn
+      link: https://www.linkedin.com/in/allan-augusto-carvalho-de-oliveira-102b985b
       name: Allan no LinkedIn
 
 nav:
   - Início: index.md
-  - Projetos:
-    - Portal de Monitoria Online: projetos/portal-monitorizacao.md
+  - Engenharia & Projetos:
+    - Observabilidade & IA: projetos/portal-monitorizacao.md
+  - DBA & Operações:
+    - Resiliência e RCA: dba/resiliencia-rca.md
+    - Scripts e Automações: dba/scripts.md
