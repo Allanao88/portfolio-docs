@@ -45,5 +45,5 @@ nav:
     - Resiliência e RCA: dba/resiliencia-rca.md
     - Scripts e Automações: dba/scripts.md
   - Gestão & ITSM:
-    - Automação Corporativa (Bitrix24): crm/bitrix24
-    - Service Desk & SLAs (GLPI): crm/glpi
+    - Automação Corporativa (Bitrix24): crm/bitrix24.md
+    - Service Desk & SLAs (GLPI): crm/glpi.md
