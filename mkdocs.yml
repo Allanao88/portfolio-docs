@@ -13,6 +13,7 @@ theme:
     - content.code.copy
     - content.action.edit
   palette:
+    # Modo Claro Corporativo
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
@@ -20,6 +21,7 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Mudar para modo escuro
+    # Modo Escuro Engenharia (Slate)
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: indigo
