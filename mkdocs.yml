@@ -33,10 +33,10 @@ extra:
       link: https://github.com/Allanao88
       name: Allan no GitHub
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/seu-perfil  # <-- Substitua pelo seu LinkedIn
+      link: https://www.linkedin.com/in/allan-augusto-carvalho-de-oliveira-102b985b/?isSelfProfile=true  # <-- Substitua pelo seu LinkedIn
       name: Allan no LinkedIn
 
 nav:
   - Início: index.md
   - Projetos:
-    - Portal de Monitorização DBA: projetos/portal-monitorizacao.md
+    - Portal de Monitoria Online: projetos/portal-monitorizacao.md
