@@ -1,6 +1,6 @@
 site_name: Allan Augusto | Data Engineering & DBA
 site_url: https://Allanao88.github.io/portfolio-docs/
-site_description: Portefólio Técnico de Engenharia de Dados, Infraestrutura e ITSM
+site_description: Portefólio Técnico de Engenharia de Dados e DBA
 
 theme:
   name: material
@@ -11,27 +11,21 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
-    - content.action.edit
   palette:
-    # Modo Claro Corporativo
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
-      accent: deep purple
+      accent: indigo
       toggle:
         icon: material/brightness-7
         name: Mudar para modo escuro
-    # Modo Escuro Engenharia (Slate)
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: indigo
-      accent: deep purple
+      accent: indigo
       toggle:
         icon: material/brightness-4
         name: Mudar para modo claro
-  font:
-    text: Roboto
-    code: Fira Code
 
 extra:
   social:
@@ -45,11 +39,11 @@ extra:
 nav:
   - Início: index.md
   - Engenharia & Projetos:
-    - Observabilidade DBA e IA: projetos/portal-monitorizacao
-    - Arquitetura Apache Airflow: projetos/airflow-observabilidade
+    - Observabilidade DBA e IA: projetos/portal-monitorizacao.md
+    - Arquitetura Apache Airflow: projetos/airflow-observabilidade.md
   - DBA & Operações:
-    - Resiliência e RCA: dba/resiliencia-rca
-    - Scripts e Automações: dba/scripts
+    - Resiliência e RCA: dba/resiliencia-rca.md
+    - Scripts e Automações: dba/scripts.md
   - Gestão & ITSM:
     - Automação Corporativa (Bitrix24): crm/bitrix24
     - Service Desk & SLAs (GLPI): crm/glpi
