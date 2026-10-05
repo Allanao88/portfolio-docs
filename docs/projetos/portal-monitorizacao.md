@@ -16,7 +16,7 @@ O grande diferencial arquitetural da plataforma é a integração nativa com um 
 *   **Leitura Imersiva para Engenheiros:** Interface otimizada com painéis laterais dinâmicos (*Offcanvas/Drawer*) que exibem as análises e *code blocks* gerados pela IA sem quebrar o layout da grelha de monitorização.
 
 ### 📊 Gestão de Infraestrutura e Governança de Dados
-*   **Monitorização Multi-Motor:** Acompanhamento de indicadores de saúde, capacidade (disco, buffers, réplicas) e eventos anómalos em instâncias relacionais críticas (MySQL, SQL Server e PostgreSQL).
+*   **Monitoria Multi-Motor:** Acompanhamento de indicadores de saúde, capacidade (disco, buffers, réplicas) e eventos anómalos em instâncias relacionais críticas (MySQL, SQL Server e PostgreSQL).
 *   **Dashboards Executivos:** Painel central com gráficos interativos de eficiência operacional, distribuição de carga e saúde dos serviços em tempo real.
 
 ### 🛠️ Gestão de Incidentes e Produtividade Corporativa
@@ -30,7 +30,7 @@ O grande diferencial arquitetural da plataforma é a integração nativa com um 
 A aplicação adota uma arquitetura leve e escalável, focada em segurança, velocidade de resposta e facilidade de *deploy*.
 
 *   **Backend (Maestro da API):** Desenvolvido em **Python 3** com o framework assíncrono **FastAPI**. Gere as conexões seguras aos motores de dados através de conectores nativos otimizados (PyMySQL, PyODBC, Psycopg2).
-*   **Camada de Segurança:** Proteção de todos os *endpoints* através de **JWT** (JSON Web Tokens) com controlo de acessos baseado em perfis (RBAC - Admin / Operador / Leitura). Nenhuma credencial é exposta no código-fonte, utilizando injeção estrita por variáveis de ambiente.
+*   **Camada de Segurança:** Proteção de todos os *endpoints* através de **JWT** (JSON Web Tokens) com controle de acessos baseado em perfis (RBAC - Admin / Operador / Leitura). Nenhuma credencial é exposta no código-fonte, utilizando injeção estrita por variáveis de ambiente.
 *   **Frontend (Direct-to-API):** Interface construída com padrões web puros (HTML5, CSS3, Vanilla JS), sem dependência de *frameworks* pesados de compilação, garantindo *load times* na casa dos milissegundos. Utiliza *Chart.js* para renderização estatística de alta fidelidade.
 *   **Motor de Inteligência Artificial:** Infraestrutura Dockerizada executando o Ollama Server em instâncias dedicadas.
 
