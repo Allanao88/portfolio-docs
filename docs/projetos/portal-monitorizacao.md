@@ -1,71 +1,46 @@
-# Portal de Monitorias Online
+# Portal de Observabilidade e Diagnóstico Autônomo de Dados
 
-Painel centralizado para monitorização de infraestrutura de bases de dados (MySQL, SQL Server), pipelines de dados (Apache Airflow), gestão de tickets (RedMine) e produtividade operacional (Íris).
+## 1. Visão Executiva
 
-## 📂 Arquitetura do Projeto
+O **Portal de Observabilidade de Engenharia de Dados** é uma solução corporativa de alta performance desenvolvida para centralizar a gestão de infraestrutura de bases de dados, orquestração de *pipelines* e métricas operacionais das equipas.
 
-O projeto adota uma arquitetura modular, separando as responsabilidades entre Frontend (Vanilla JS/HTML/CSS) e Backend (FastAPI). Esta estrutura facilita a manutenção, o debug e a escalabilidade de novas integrações.
+O grande diferencial arquitetural da plataforma é a integração nativa com um **Motor de Inteligência Artificial Local (LLM)**. Este ecossistema atua de forma autónoma no diagnóstico de falhas em *pipelines* de dados, reduzindo drasticamente o *Mean Time to Resolution* (MTTR) e transformando a postura da equipa de reativa para proativa.
 
-```text
-meu_painel_dba/
-├── .env                     # Variáveis de ambiente com credenciais (não versionado)
-├── requirements.txt         # Dependências Python (FastAPI, conectores de BD)
-├── README.md                # Documentação do projeto
-│
-├── backend/
-│   ├── main.py              # Maestro da API (Entrypoint FastAPI)
-│   ├── database.py          # Conectores de BD (MySQL, SQL Server, PostgreSQL)
-│   └── routers/             # Rotas modulares separadas por contexto
-│       ├── monitoria.py     # Infraestrutura DBA
-│       ├── airflow.py       # Pipelines de Dados
-│       ├── redmine.py       # Gestão de Tickets
-│       └── iris.py          # Produtividade
-│
-└── frontend/
-    ├── css/
-    │   └── style.css        # Estilos globais (Dark/Light Mode e layouts)
-    ├── index.html           # Portal/Menu inicial de navegação
-    ├── monitoria.html       # Visualização da Infraestrutura
-    ├── airflow.html         # Visualização do Airflow
-    ├── redmine.html         # Visualização do RedMine
-    └── iris.html            # Visualização do Íris
-```
+---
 
-⚙️ Configuração do Ambiente Local
-1 - Aceda à pasta do projeto:
-Abra o terminal e navegue até ao diretório raiz do projeto.
+## 2. Proposta de Valor e Funcionalidades Core
 
-2 - Crie e ative o ambiente virtual Python:
-    python -m venv venv
-    source venv/bin/activate  # No Windows: venv\Scripts\activate
+### 🧠 Diagnóstico Autônomo com IA (Observabilidade Inteligente)
+*   **Análise de Root Cause em Tempo Real:** O sistema monitoriza continuamente o orquestrador de dados (Apache Airflow). Ao detetar uma falha (ex: DAG/Task interrompida), extrai os logs físicos e submete os *tracebacks* a um motor LLM operando em infraestrutura local.
+*   **Zero Data-Leakage (Privacidade):** A utilização de IA local (modelo *Qwen2.5-Coder* conteinerizado) garante que nenhum dado sensível de infraestrutura ou log de erro é enviado para APIs externas na *cloud*.
+*   **Leitura Imersiva para Engenheiros:** Interface otimizada com painéis laterais dinâmicos (*Offcanvas/Drawer*) que exibem as análises e *code blocks* gerados pela IA sem quebrar o layout da grelha de monitorização.
 
-3 - Instale as dependências:
-    pip install -r requirements.txt
+### 📊 Gestão de Infraestrutura e Governança de Dados
+*   **Monitorização Multi-Motor:** Acompanhamento de indicadores de saúde, capacidade (disco, buffers, réplicas) e eventos anómalos em instâncias relacionais críticas (MySQL, SQL Server e PostgreSQL).
+*   **Dashboards Executivos:** Painel central com gráficos interativos de eficiência operacional, distribuição de carga e saúde dos serviços em tempo real.
 
-4 - Configure o .env:
-Crie um ficheiro .env na raiz do projeto com as suas credenciais de acesso às bases de dados. As variáveis necessárias incluem credenciais para MANAGER, ZABBIX, HULK, UNIFICADA e AIRFLOW.
+### 🛠️ Gestão de Incidentes e Produtividade Corporativa
+*   **Integração ITSM Integrada:** Conexão fluida com sistemas corporativos de gestão de chamados (*ticketing*) e plataformas de acompanhamento de produtividade (*Task Management*), consolidando a carga de trabalho da engenharia.
+*   **Visão Unificada (Single Pane of Glass):** Agregação de dados de infraestrutura e gestão num único painel, eliminando a necessidade de alternar entre múltiplas ferramentas durante o *troubleshooting* crítico.
 
-🚀 Executando o Projeto
-1 - Inicie o Backend (FastAPI):
-A partir da raiz do projeto, navegue para a pasta backend e inicie o Uvicorn:
-    cd backend
-    uvicorn main:app --reload
-A API estará disponível localmente em: http://127.0.0.1:8000
+---
 
-2 - Inicie o Frontend:
-Basta abrir o ficheiro frontend/index.html no seu navegador web, ou utilizar uma extensão como o Live Server do VS Code para ter o hot-reload visual.
+## 3. Arquitetura e Stack Tecnológica
 
-🐧 Notas para Deploy em CentOS
-Para o deploy do backend na sua máquina virtual CentOS, certifique-se de cumprir os seguintes pré-requisitos ao nível do Sistema Operativo antes de executar o pip install -r requirements.txt:
+A aplicação adota uma arquitetura leve e escalável, focada em segurança, velocidade de resposta e facilidade de *deploy*.
 
-.Dependências de compilação (PostgreSQL e MySQL):
-Pacotes base necessários para compilar as bibliotecas de conexão.
-    sudo yum install gcc python3-devel postgresql-devel
+*   **Backend (Maestro da API):** Desenvolvido em **Python 3** com o framework assíncrono **FastAPI**. Gere as conexões seguras aos motores de dados através de conectores nativos otimizados (PyMySQL, PyODBC, Psycopg2).
+*   **Camada de Segurança:** Proteção de todos os *endpoints* através de **JWT** (JSON Web Tokens) com controlo de acessos baseado em perfis (RBAC - Admin / Operador / Leitura). Nenhuma credencial é exposta no código-fonte, utilizando injeção estrita por variáveis de ambiente.
+*   **Frontend (Direct-to-API):** Interface construída com padrões web puros (HTML5, CSS3, Vanilla JS), sem dependência de *frameworks* pesados de compilação, garantindo *load times* na casa dos milissegundos. Utiliza *Chart.js* para renderização estatística de alta fidelidade.
+*   **Motor de Inteligência Artificial:** Infraestrutura Dockerizada executando o Ollama Server em instâncias dedicadas.
 
-.Driver ODBC (Para o SQL Server / Zabbix / RedMine / Íris):
-É estritamente obrigatório instalar o msodbcsql17 e o unixODBC-devel da Microsoft no CentOS para que o pacote pyodbc consiga comunicar adequadamente com as instâncias SQL Server.
+---
 
-🛠️ Tecnologias Utilizadas
-- Backend: Python 3, FastAPI, Uvicorn
-- Conectores: PyMySQL (MySQL), PyODBC (SQL Server), Psycopg2 (PostgreSQL)
-- Frontend: HTML5, CSS3 (Variáveis nativas para temas), JavaScript (Vanilla fetch API)
+## 4. O Fluxo de Diagnóstico da Pipeline de Dados
+
+A arquitetura do pipeline de inferência foi desenhada para operar de forma transparente em *background*:
+
+1.  **Deteção Contínua:** Uma rotina assíncrona varre a fila de tarefas do orquestrador num intervalo de *polling* pré-definido.
+2.  **Extração e Sanitização:** Os logs de erro brutos gerados pelas aplicações falhas são extraídos e estruturados.
+3.  **Inferência Autónoma:** O texto é submetido ao LLM local, que elabora uma análise técnica estruturada com a identificação exata da quebra no código e a proposta de solução.
+4.  **Persistência e Sinalização:** A análise gerada é guardada no banco de dados operacional e o alerta é sinalizado visualmente na *dashboard* da equipa de engenharia.
