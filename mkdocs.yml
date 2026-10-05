@@ -39,7 +39,8 @@ extra:
 nav:
   - Início: index.md
   - Engenharia & Projetos:
-    - Observabilidade & IA: projetos/portal-monitorizacao.md
+    - Observabilidade DBA e IA: projetos/portal-monitorizacao.md
+    - Arquitetura Apache Airflow: projetos/airflow-observabilidade.md
   - DBA & Operações:
     - Resiliência e RCA: dba/resiliencia-rca.md
     - Scripts e Automações: dba/scripts.md
