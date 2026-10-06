@@ -1,40 +1,25 @@
-# Service Desk & SLAs — GLPI
+# GLPI & Gestão de Incidentes / Ativos
 
-Case relacionado à gestão de chamados, indicadores operacionais e processos de ITSM.
-
-## Objetivo
-
-Organizar dados de atendimento e transformar informações de chamados em indicadores úteis para operação e gestão.
-
-## 1. Visão Executiva e Governança de Serviços
-
-A maturidade de uma operação de TI mede-se pela sua capacidade de rastrear, priorizar e resolver incidentes de forma sistémica. 
-
-Este documento detalha a arquitetura de *IT Service Management* (ITSM) implementada no **GLPI**, focando não apenas na parametrização do *Service Desk*, mas sobretudo na engenharia de dados construída para consolidar métricas de múltiplas instâncias num único ecossistema analítico.
+O **GLPI** (*Gestionnaire Libre de Parc Informatique*) desempenha um papel central na governança de TI, controle de ativos, gestão de chamados e suporte aos usuários. Minha atuação nesta ferramenta foi além do suporte diário: atuei como **ponto focal técnico principal** em projetos críticos de infraestrutura da ferramenta, com destaque para a migração e implantação da versão **GLPI 11**.
 
 ---
 
-## 2. Estruturação Arquitetural do Service Desk
+## 🚀 Destaque do Projeto: Implantação e Migração para o GLPI 11
 
-Para garantir que os incidentes e requisições não fossem apenas "tickets isolados", mas sim processos governados, a plataforma foi estruturada com base nas melhores práticas:
-* **Catálogo de Serviços:** Mapeamento e categorização de ponta a ponta dos serviços de TI, infraestrutura e operações, parametrizando a entrada de dados.
-* **Gestão de Níveis de Serviço (SLA/OLA):** Implementação de regras temporais de tempo de resposta e tempo de resolução, assegurando o cumprimento de prazos contratuais consoante a prioridade do negócio.
-* **Roteamento Inteligente:** Criação de matrizes de decisão operacionais para atribuição e escalonamento automático de chamados com base na categoria, urgência e criticidade do impacto.
-
----
-
-## 3. Engenharia de Dados: Pipeline Multi-Instância
-
-O maior desafio de arquitetura desta operação não era gerir uma ferramenta, mas sim resolver a fragmentação da informação. A infraestrutura da empresa opera com **4 instâncias independentes de GLPI**.
-
-Para eliminar estes silos de dados, foi desenhada uma arquitetura de integração de alto nível:
-* **Pipeline de Unificação (ETL):** Desenvolvimento de uma esteira de dados customizada que extrai os registos, metadados e tempos de atendimento das 4 instâncias de forma contínua.
-* **Repositório Centralizado (MySQL):** Todos os dados extraídos são normalizados e persistidos num único banco de dados relacional. Esta consolidação atua como a *Single Source of Truth* (Fonte Única da Verdade) para toda a gestão de suporte corporativo.
+Como ponto focal técnico, liderei a jornada completa de evolução da plataforma de Service Desk da empresa:
+* **Planejamento e Arquitetura:** Concepção da estratégia de transição de ambiente para a nova versão, avaliando impactos, compatibilidade de banco de dados e requisitos de infraestrutura.
+* **Execução da Migração:** Condução técnica da migração de versão dentro da empresa, garantindo a integridade dos dados históricos, histórico de chamados, base de conhecimento e estrutura de ativos.
+* **Configuração Avançada e Homologação:** Parametrização de perfis, regras de atribuição, fluxos de atendimento e automações nativas da nova versão para otimizar o tempo de resposta das equipes.
+* **Mitigação de Riscos e Estabilização:** Acompanhamento pós-implantação (*go-live*), resolução rápida de desvios e garantia de estabilidade para todos os departamentos usuários.
 
 ---
 
-## 4. Observabilidade e Business Intelligence
+## 🛠️ Atuação Contínua e Sustentação
 
-Ao transferir os dados das bases distribuídas do GLPI para um modelo centralizado, desbloqueámos capacidades analíticas avançadas (Data-Driven ITSM):
-* **Grafana:** Conexão direta à base MySQL central para renderização de *dashboards* operacionais em tempo real (painéis de NOC), permitindo acompanhar o *backlog*, a volumetria de incidentes e a disponibilidade de ativos.
-* **Power BI e Integrações (Excel):** Consumo dos modelos relacionais para construção de relatórios executivos táticos. Permite o cruzamento de KPIs de produtividade (Tempo Médio de Atendimento, SLA cumprido vs. violado) e a identificação de tendências estruturais de falhas.
+* **Suporte Estruturado e Governança:** Atendimento a incidentes e solicitações, servindo como referência técnica para dúvidas e melhorias contínuas no uso da ferramenta.
+* **Integração com Operações:** Conexão dos dados gerados no GLPI com rotinas de análise e painéis de indicadores (Power BI e Grafana) para monitoramento de SLA e volumetria de suporte.
+* **Padronização de Processos:** Alinhamento dos fluxos do GLPI com as demais ferramentas de workflow da empresa (como o Bitrix24), assegurando sinergia no atendimento interno.
+
+---
+
+> *"Gerenciar uma plataforma de Service Desk em nível de infraestrutura exige precisão técnica, planejamento de migração rigoroso e foco total na experiência do usuário para garantir que a operação nunca pare."*
