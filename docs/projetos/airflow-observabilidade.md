@@ -1,48 +1,35 @@
-# Arquitetura Apache Airflow
+# Apache Airflow & Observabilidade de Pipelines
 
-## Objetivo
-
-Orquestrar rotinas de dados e automações operacionais de forma centralizada, rastreável e reproduzível.
-
-## Tecnologias
-
-`Apache Airflow` `Docker` `Python` `Linux` `ETL`
-
-## 1. O Desafio Arquitetural (O Legado)
-
-O projeto nasceu da necessidade crítica de garantir a replicação e a integridade dos dados para o **Data Warehouse** central da companhia. Inicialmente, a orquestração desta engenharia de dados (desenvolvida em Python) era gerida nativamente via `crontab` no Linux.
-
-Apesar de funcional na sua conceção inicial, a abordagem *legacy* apresentava gargalos operacionais graves que limitavam a escala:
-* **Falhas em Cascata:** O agrupamento era feito através de scripts `.sh` estritamente sequenciais. Se uma etapa de extração falhasse, toda a esteira subsequente era abortada, paralisando a atualização de dados.
-* **Falta de Observabilidade (Caixa Preta):** A identificação da causa-raiz de uma falha exigia acesso manual via SSH à VM Linux para leitura de logs isolados em ficheiros de texto, aumentando drasticamente o MTTR (*Mean Time to Resolution*).
+Em ecossistemas de dados maduros, ter scripts que rodam isolados não é suficiente. A orquestração precisa garantir que as dependências sejam respeitadas, que as falhas sejam tratadas e que a gestão tenha visão clara do que está acontecendo. Minha abordagem com o **Apache Airflow** une o desenvolvimento de pipelines (ETL/ELT) à **observabilidade de ponta a ponta**, transformando processos invisíveis em arquiteturas auditáveis e resilientes.
 
 ---
 
-## 2. A Solução: Escala e Isolamento de Recursos
+## 🚀 O Desafio da Engenharia de Dados
 
-Para resolver os problemas de concorrência e visibilidade, a infraestrutura foi migrada para o **Apache Airflow**, operando num ambiente 100% conteinerizado (Docker) sobre uma máquina virtual **Rocky Linux**.
+Conforme as operações de negócios escalam, a necessidade de transacionar, transformar e carregar grandes volumes de dados (ETL/ELT) cresce exponencialmente. O desafio é tirar as automações de ambientes frágeis (como agendadores de sistema ou *cron jobs*) e levá-las para uma plataforma robusta de engenharia de dados[cite: 2].
 
-### ⚙️ Isolamento por Containers Efêmeros
-Para mitigar a sobrecarga da máquina virtual, a arquitetura foi desenhada para lançar **containers efêmeros** no momento da execução de cada script. Este padrão de engenharia garante:
-1. **Contenção de Falhas:** O *crash* ou o estouro de memória (OOM) de um script pesado de dados não afeta o *scheduler* central nem outros *pipelines* paralelos.
-2. **Maximização de Recursos:** Prevenção de gargalos (*bottlenecks*) na VM *host*. Atualmente, o ecossistema orquestra **83 rotinas ativas** (desde ELT até rotinas semanais de DBA), suportando picos de **13 execuções simultâneas** sem degradação de performance do servidor.
+## 🛠️ Arquitetura e Orquestração (Airflow + Docker)
+
+Para garantir escalabilidade e isolamento, estruturo a orquestração de cargas utilizando contêineres e grafos direcionados:
+
+* **Conteinerização com Docker:** Implantação e sustentação do ambiente do Apache Airflow em Docker, garantindo isolamento de dependências, fácil reprodutibilidade e escalabilidade do ambiente de execução de dados[cite: 1, 2].
+* **Desenvolvimento de DAGs em Python:** Criação de *Directed Acyclic Graphs* (DAGs) complexas para orquestrar extração de dados via APIs REST, cruzamento de informações em bancos relacionais (MySQL/SQL Server) e carga para ferramentas de análise[cite: 2].
+* **Tolerância a Falhas:** Parametrização de regras de retentativa (*retries*), alertas de falha e dependências rigorosas entre tarefas, garantindo que um erro no meio do pipeline não corrompa o banco de dados final.
+
+## 🔍 Observabilidade: O Fim da "Caixa-Preta"
+
+Um pipeline de dados não deve ser um processo cego. Para garantir a confiabilidade da operação, integro a execução das DAGs a uma camada de observabilidade técnica e de negócios:
+
+* **Telemetria e Logs:** Rastreamento completo do tempo de execução das DAGs, gargalos de processamento e volume de dados transacionados.
+* **Dashboards de Monitoramento:** Centralização de indicadores operacionais utilizando **Grafana** e **FastAPI**. Isso permite que tanto a equipe de infraestrutura quanto as áreas de negócios saibam, em tempo real, o status de atualização das bases de dados.
+* **Diagnóstico Pró-ativo:** Em caso de quebra de pipeline, o rastreio das evidências (RCA) é imediato, permitindo atuar no código ou na infraestrutura antes que o atraso nos dados afete a tomada de decisão gerencial[cite: 2].
+
+## 📊 Impacto de Negócio
+
+1. **Confiabilidade da Informação:** A garantia de que os dashboards gerenciais (Power BI) e os relatórios da diretoria sejam alimentados com dados íntegros, sem duplicações ou falhas de carga[cite: 2].
+2. **Visibilidade Operacional:** Gestores e equipes de suporte passam a ter clareza sobre o SLA de entrega dos dados.
+3. **Escalabilidade Tecnológica:** A base da arquitetura permite adicionar dezenas de novas integrações e fontes de dados sem comprometer a estabilidade do servidor ou a organização do código.
 
 ---
 
-## 3. Decisões de Engenharia (Stack Técnica)
-
-* **Executor (`LocalExecutor`):** Escolhido estrategicamente para manter o controlo estrito dos recursos verticais da VM e simplificar a topologia da rede. Isto garante uma consolidação limpa dos logs, que agora são centralizados e facilmente consumidos pela UI nativa do Airflow.
-* **Metadata Backend:** Banco de dados **PostgreSQL**, garantindo a persistência transacional fiável do estado das DAGs, histórico de execuções e registo de falhas.
-* **Gestão de Credenciais:** As chaves de acesso a bases de dados e APIs (*connections*) não ficam expostas no código nem na interface web. São geridas através de variáveis de ambiente (`.env`) injetadas de forma segura nos containers no momento do *run*.
-* **Ciclo de Deploy:** A gestão de *releases* ocorre de forma segmentada. Os scripts operacionais são alocados em diretórios mapeados no Rocky Linux e integrados a DAGs paramétricas, que dinamicamente orquestram a assiduidade necessária (de *cronjobs* por minuto a rotinas de manutenção semanais).
-
----
-
-## 4. Inovação: Observabilidade e Auto-Diagnóstico com IA (LLM)
-
-O grande diferencial competitivo desta implementação é a orquestração do *troubleshooting* aliada à Inteligência Artificial. 
-
-Quando um *pipeline* sofre uma quebra, o diagnóstico técnico é realizado sem intervenção humana inicial:
-1. **Varredura (Polling):** Um *pipeline* dedicado chamado `sys_observability_llm` faz a monitorização contínua das falhas geradas pelo sistema.
-2. **Extração de Tracebacks:** Os trechos exatos de log (erros de compilação ou falhas de *timeout* em DBs) são recolhidos e inseridos numa tabela de auditoria no PostgreSQL.
-3. **Inferência Local (Qwen2.5-Coder):** O motor de IA lê o *traceback* em base de dados, realiza a análise de *Root Cause* (RCA) e emite um parecer com a sugestão de correção do código, disponibilizando o resultado final diretamente no **Portal de Monitorização DBA**.
+> *"Automação sem observabilidade vira caixa-preta. Observabilidade sem ação vira dashboard. O objetivo da orquestração é conectar dados, infraestrutura e operação de forma que possamos detectar, entender e agir."*
