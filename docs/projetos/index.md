@@ -16,14 +16,14 @@ Selecione um projeto para explorar o cenário, o desafio técnico, as decisões 
 ## 🛡️ Infraestrutura, DBA & Resiliência
 
 * **[Resiliência, Troubleshooting & RCA](resilience-rca.md):** Minha metodologia e abordagem técnica para mitigação de crashes, *tuning* de performance e investigação de causa raiz orientada por evidências em ambientes críticos de produção (MySQL Percona, SQL Server e Linux)[cite: 2, 4].
-* **[GLPI 11 & Governança ITSM](glpi.md):** Liderança técnica e execução ponta a ponta da migração corporativa de infraestrutura do sistema de chamados e gestão de ativos (Service Desk)[cite: 3, 4].
+* **[GLPI 11 & Governança ITSM](glpi.md):** Liderança técnica e execução ponta a ponta da migração corporativa de infraestrutura do sistema de chamados e gestão de ativos (Service Desk).
 
 ---
 
 ## ⚙️ Automação & Inteligência Operacional
 
-* **[Scripts, Data Apps & Automação Operacional](scripts.md):** Desenvolvimento de aplicações *end-to-end* (Python, Streamlit, JS) e rotinas para redução de trabalho manual, consumo de APIs e integração com rotinas de inteligência logística corporativa[cite: 3, 4].
-* **[Bitrix24 & Engenharia de Workflows](bitrix24.md):** Estruturação e arquitetura de fluxos de trabalho automatizados, conectando os dados da operação gerados no Bitrix24 diretamente a painéis gerenciais (Power BI e Grafana) para medição de SLAs e volumetria[cite: 3, 4].
+* **[Scripts, Data Apps & Automação Operacional](scripts.md):** Desenvolvimento de aplicações *end-to-end* (Python, Streamlit, JS) e rotinas para redução de trabalho manual, consumo de APIs e integração com rotinas de inteligência logística corporativa.
+* **[Bitrix24 & Engenharia de Workflows](bitrix24.md):** Estruturação e arquitetura de fluxos de trabalho automatizados, conectando os dados da operação gerados no Bitrix24 diretamente a painéis gerenciais (Power BI e Grafana) para medição de SLAs e volumetria.
 
 ---
 
