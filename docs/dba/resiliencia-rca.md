@@ -17,12 +17,12 @@ Sustentar bancos de dados corporativos exige muito mais do que ações paliativa
 Quando um incidente afeta a operação, a abordagem vai muito além de "apagar o incêndio". Conduzo a investigação de causa raiz cruzando dados de toda a stack de tecnologia, desde a rede até o código da consulta:
 
 1. **Isolamento de Evidências:** Coleta minuciosa de logs do sistema operacional (`Linux`), logs transacionais dos SGBDs, análise de tráfego (herança da forte vivência técnica com redes e telecom) e métricas históricas de ferramentas de observabilidade (como `Grafana`, `Zabbix` e `Munin`).
-2. **Diagnóstico Sistêmico:** Identificação do gatilho exato da falha — seja contenção de *locks*, estouro de recursos de hardware, anomalias de rede ou ineficiências estruturais em consultas SQL complexas[cite: 1].
+2. **Diagnóstico Sistêmico:** Identificação do gatilho exato da falha — seja contenção de *locks*, estouro de recursos de hardware, anomalias de rede ou ineficiências estruturais em consultas SQL complexas.
 3. **Ação Estrutural Definitiva:** Aplicação de correções (*tuning*, ajustes de arquitetura ou criação de automações em Python para detecção precoce) e documentação técnica para garantir que o mesmo ecossistema não sofra reincidências do mesmo erro.
 
 ## 📊 Impacto de Negócio e Confiabilidade
 
-* **Disponibilidade e SLA:** Redução drástica do *downtime* não planejado, garantindo que as operações da empresa fluam sem interrupções sistêmicas[cite: 1].
+* **Disponibilidade e SLA:** Redução drástica do *downtime* não planejado, garantindo que as operações da empresa fluam sem interrupções sistêmicas.
 * **Previsibilidade de Infraestrutura:** A conversão de "falhas misteriosas" em diagnósticos documentados permite que a gestão tome decisões de investimento e provisionamento baseadas em dados reais de consumo e gargalos.
 * **Cultura de Resiliência:** Transformação da operação por meio da observabilidade, conectando alertas técnicos a ações de contingência antes que o impacto chegue ao usuário final.
 
