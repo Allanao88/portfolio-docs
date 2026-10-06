@@ -1,28 +1,30 @@
-# Projetos
+# Projetos e Cases Técnicos
 
-Meu portfólio técnico está organizado por problemas reais e soluções implementadas.
+A verdadeira engenharia de dados e infraestrutura não se resume às ferramentas utilizadas, mas aos **problemas de negócios que elas resolvem**. Os cases documentados abaixo refletem minha atuação prática na construção de arquiteturas resilientes, automação de operações críticas e garantia de disponibilidade em ambientes de alta complexidade.
 
-<div class="project-grid">
-  <a class="project-card" href="portal-monitorizacao/">
-    <div class="project-kicker">OBSERVABILIDADE</div>
-    <h3>Portal de Observabilidade DBA + IA</h3>
-    <p>Portal técnico para centralizar informações operacionais, indicadores e diagnóstico.</p>
-    <div class="tags"><span>Python</span><span>FastAPI</span><span>Grafana</span><span>MySQL</span></div>
-  </a>
+Selecione um projeto para explorar o cenário, o desafio técnico, as decisões arquiteturais e o impacto operacional gerado em cada frente:
 
-  <a class="project-card" href="airflow-observabilidade/">
-    <div class="project-kicker">ORQUESTRAÇÃO</div>
-    <h3>Arquitetura Apache Airflow</h3>
-    <p>Orquestração de pipelines e rotinas operacionais com Docker e DAGs independentes.</p>
-    <div class="tags"><span>Airflow</span><span>Docker</span><span>Python</span></div>
-  </a>
-</div>
+---
 
-## Critério
+## 📊 Engenharia de Dados & Observabilidade
 
-Cada case procura responder quatro perguntas:
+* **[Portal de Observabilidade DBA + IA](observabilidade.md):** Centralização de indicadores e recursos de diagnóstico preventivo para apoiar a sustentação de ambientes de dados, unindo Python, FastAPI, Grafana e bancos de dados[cite: 2, 4].
+* **[Apache Airflow & Orquestração de Pipelines](airflow-observabilidade.md):** Estruturação de um ambiente conteinerizado (Docker) para orquestração e execução controlada, tolerante a falhas, de pipelines de dados (ETL/ELT) desenvolvidos em Python[cite: 2, 4].
 
-1. **Qual era o problema?**
-2. **Qual foi a solução técnica?**
-3. **Quais tecnologias e decisões foram utilizadas?**
-4. **Qual foi o impacto operacional?**
+---
+
+## 🛡️ Infraestrutura, DBA & Resiliência
+
+* **[Resiliência, Troubleshooting & RCA](resilience-rca.md):** Minha metodologia e abordagem técnica para mitigação de crashes, *tuning* de performance e investigação de causa raiz orientada por evidências em ambientes críticos de produção (MySQL Percona, SQL Server e Linux)[cite: 2, 4].
+* **[GLPI 11 & Governança ITSM](glpi.md):** Liderança técnica e execução ponta a ponta da migração corporativa de infraestrutura do sistema de chamados e gestão de ativos (Service Desk)[cite: 3, 4].
+
+---
+
+## ⚙️ Automação & Inteligência Operacional
+
+* **[Scripts, Data Apps & Automação Operacional](scripts.md):** Desenvolvimento de aplicações *end-to-end* (Python, Streamlit, JS) e rotinas para redução de trabalho manual, consumo de APIs e integração com rotinas de inteligência logística corporativa[cite: 3, 4].
+* **[Bitrix24 & Engenharia de Workflows](bitrix24.md):** Estruturação e arquitetura de fluxos de trabalho automatizados, conectando os dados da operação gerados no Bitrix24 diretamente a painéis gerenciais (Power BI e Grafana) para medição de SLAs e volumetria[cite: 3, 4].
+
+---
+
+> *"Tecnologia só entrega valor quando conecta a estabilidade da infraestrutura à eficiência da operação, permitindo que a gestão pare de apagar incêndios e passe a tomar decisões baseadas em dados."*
