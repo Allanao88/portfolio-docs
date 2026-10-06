@@ -24,7 +24,7 @@ Quando um incidente afeta a operação, a abordagem vai muito além de "apagar o
 
 * **Disponibilidade e SLA:** Redução drástica do *downtime* não planejado, garantindo que as operações da empresa fluam sem interrupções sistêmicas[cite: 1].
 * **Previsibilidade de Infraestrutura:** A conversão de "falhas misteriosas" em diagnósticos documentados permite que a gestão tome decisões de investimento e provisionamento baseadas em dados reais de consumo e gargalos.
-* **Cultura de Resiliência:** Transformação da operação por meio da observabilidade, conectando alertas técnicos a ações de contingência antes que o impacto chegue ao usuário final[cite: 2].
+* **Cultura de Resiliência:** Transformação da operação por meio da observabilidade, conectando alertas técnicos a ações de contingência antes que o impacto chegue ao usuário final.
 
 ---
 
