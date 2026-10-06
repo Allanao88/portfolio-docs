@@ -12,7 +12,7 @@ Conforme as operações de negócios escalam, a necessidade de transacionar, tra
 
 Para garantir escalabilidade e isolamento, estruturo a orquestração de cargas utilizando contêineres e grafos direcionados:
 
-* **Conteinerização com Docker:** Implantação e sustentação do ambiente do Apache Airflow em Docker, garantindo isolamento de dependências, fácil reprodutibilidade e escalabilidade do ambiente de execução de dados[cite: 1, 2].
+* **Conteinerização com Docker:** Implantação e sustentação do ambiente do Apache Airflow em Docker, garantindo isolamento de dependências, fácil reprodutibilidade e escalabilidade do ambiente de execução de dados.
 * **Desenvolvimento de DAGs em Python:** Criação de *Directed Acyclic Graphs* (DAGs) complexas para orquestrar extração de dados via APIs REST, cruzamento de informações em bancos relacionais (MySQL/SQL Server) e carga para ferramentas de análise[cite: 2].
 * **Tolerância a Falhas:** Parametrização de regras de retentativa (*retries*), alertas de falha e dependências rigorosas entre tarefas, garantindo que um erro no meio do pipeline não corrompa o banco de dados final.
 
