@@ -13,23 +13,23 @@ Minha stack é orientada para sustentação de ambientes críticos, engenharia d
 * **APIs REST:** Integração de sistemas e consumo de serviços para automação de fluxos.
 
 ### 2. Administração de Bancos de Dados (DBA) & Performance
-* **MySQL / Percona Server:** Administração, monitoramento, troubleshooting avançado, análise de performance, tuning e mitigação de crashes em ambientes de alta criticidade[cite: 4].
-* **SQL Server:** Sustentação, diagnóstico de desvios, análise de desempenho e garantia de alta disponibilidade[cite: 4].
-* **Resiliência e RCA:** Condução de investigações de causa raiz (Root Cause Analysis) em incidentes de banco de dados[cite: 4].
+* **MySQL / Percona Server:** Administração, monitoramento, troubleshooting avançado, análise de performance, tuning e mitigação de crashes em ambientes de alta criticidade.
+* **SQL Server:** Sustentação, diagnóstico de desvios, análise de desempenho e garantia de alta disponibilidade.
+* **Resiliência e RCA:** Condução de investigações de causa raiz (Root Cause Analysis) em incidentes de banco de dados.
 
 ### 3. Automação, Aplicações & Ferramentas
 * **Streamlit & FastAPI:** Construção de dashboards interativos, data apps e backends leves para visualização e suporte operacional.
 * **Git / Controle de Versão:** Versionamento de código e gestão de repositórios de documentação e projetos.
-* **Bitrix24 & GLPI:** Gestão de workflows, suporte interno e automação de processos operacionais[cite: 4].
+* **Bitrix24 & GLPI:** Gestão de workflows, suporte interno e automação de processos operacionais.
 
 ### 4. Infraestrutura, Sistemas Operacionais & Monitoramento
-* **Linux:** Administração, rotinas operacionais e sustentação de ambientes baseados em servidores Linux[cite: 4].
+* **Linux:** Administração, rotinas operacionais e sustentação de ambientes baseados em servidores Linux.
 * **Docker:** Containerização de aplicações e ambientes de execução para engenharia de dados (como Apache Airflow).
-* **Grafana:** Monitoramento de indicadores operacionais e criação de dashboards em tempo real[cite: 4].
-* **Virtualização & Telefonia (Histórico Técnico N2):** Experiência prévia com ambientes virtualizados (VMWare, XEN) e infraestrutura de telecomunicações / Asterisk / FreePBX / VoIP[cite: 4].
+* **Grafana:** Monitoramento de indicadores operacionais e criação de dashboards em tempo real.
+* **Virtualização & Telefonia (Histórico Técnico N2):** Experiência prévia com ambientes virtualizados (VMWare, XEN) e infraestrutura de telecomunicações / Asterisk / FreePBX / VoIP.
 
 ### 5. Business Intelligence & Analytics
-* **Power BI:** Desenvolvimento de relatórios estratégicos e operacionais, acompanhamento de indicadores de desempenho e apoio à tomada de decisão[cite: 4].
+* **Power BI:** Desenvolvimento de relatórios estratégicos e operacionais, acompanhamento de indicadores de desempenho e apoio à tomada de decisão.
 * **Macros VBA / Excel Avançado:** Automação de rotinas e relatórios gerenciais legados.
 
 ---
