@@ -1,46 +1,26 @@
-# Automação Corporativa — Bitrix24
+# Bitrix24 & Gestão de Workflows
 
-## Tecnologias
-
-`Bitrix24` `Python` `REST API` `SQL`
-
-## 1. Visão Executiva e Governança de Processos
-
-A eficiência de uma operação comercial e de *delivery* depende da fluidez com que a informação transita entre os departamentos. 
-
-Este documento detalha a arquitetura de automação e integração de dados desenvolvida em torno do ecossistema **Bitrix24**, atuando como o motor principal que sustenta o ciclo de vida do cliente: desde a captação do *lead*, passando pela negociação no funil de vendas, até à entrega técnica (*Esteira/Delivery*).
+A gestão de fluxos de trabalho, o suporte estruturado aos usuários internos e a automação de processos operacionais são pilares fundamentais para garantir a eficiência e a padronização das demandas corporativas. Minha atuação com o **Bitrix24** (em conjunto com ferramentas de suporte como o **GLPI**) focou em transformar processos manuais em fluxos ágeis, rastreáveis e integrados.
 
 ---
 
-## 2. O Desafio Operacional (End-to-End Tracking)
+## 🎯 Contexto e Atuação
 
-O Bitrix24 atua como o coração da operação comercial e de implantação da empresa. O grande desafio residia em garantir a alta disponibilidade, fluidez e rastreabilidade dos processos de negócio entre múltiplas equipas.
+Durante minha trajetória como Analista de Planejamento, atuei ativamente na sustentação, estruturação e melhoria contínua de plataformas de atendimento e gestão de processos:
 
-**Dores mitigadas:**
-* **Gargalos na Transição de Fases:** Necessidade de garantir que os gatilhos e automações entre as equipas de Vendas e *Delivery* (Esteira) funcionassem sem falhas ou intervenção manual.
-* **Silos de Informação e Retenção de Dados:** A dependência exclusiva dos relatórios nativos do SaaS limitava a capacidade analítica avançada e o armazenamento histórico de longo prazo.
-
----
-
-## 3. Engenharia de Soluções e Automação
-
-Para resolver estes desafios, a abordagem foi dividida em duas frentes: **Automação de Processos de Negócio (BPA)** e **Engenharia de Dados (ETL)**.
-
-### 🔄 Orquestração de Workflows e Funis
-* **Desenho de Processos:** Reestruturação lógica e técnica dos funis de **Leads, Vendas e Delivery (Esteira)**.
-* **Automação Baseada em Eventos:** Implementação de regras de negócio e *triggers* que transacionam as negociações automaticamente, assegurando o cumprimento dos SLAs de atendimento.
-
-### ⚙️ Pipeline de Dados Customizado (API to MySQL)
-Para democratizar o acesso aos dados e garantir a soberania da informação, foi construída uma esteira de extração robusta:
-* **Integração REST API:** Desenvolvimento de *scripts* em Python focados no consumo massivo, paginação e tratamento de *rate limits* das APIs do Bitrix24.
-* **Persistência Relacional:** Todo o histórico de interações, alterações de *status* e campos dinâmicos são extraídos, tipados e persistidos numa base de dados relacional **MySQL**.
+* **Suporte e Atendimento aos Usuários:** Apoio direto aos departamentos internos para resolução de dúvidas, suporte técnico no uso da ferramenta e condução de melhorias nos fluxos existentes.
+* **Modelagem e Automação de Workflows:** Desenho, implantação e otimização de processos automatizados dentro da plataforma, reduzindo gargalos operacionais e tempo de atendimento.
+* **Acompanhamento de Implantações:** Medição e monitoramento da evolução na implantação de melhorias de processos internos na empresa, garantindo aderência às metas estratégicas.
+* **Integração Operacional:** Alinhamento dos fluxos de atendimento com indicadores de desempenho e relatórios gerenciais (Power BI e Grafana).
 
 ---
 
-## 4. Impacto de Negócio e Retorno (ROI)
+## 🛠️ Principais Contribuições Técnicas
 
-A combinação de fluxos nativos otimizados com uma engenharia de dados customizada gerou um impacto arquitetural transformacional:
+1. **Padronização de Processos:** Mapeamento de rotinas internas para dentro do Bitrix24, garantindo que cada chamado ou projeto seguisse um ciclo de vida claro e auditável.
+2. **Redução de Gargalos:** Automatização de etapas repetitivas de aprovação e repasse de tarefas entre equipes, agilizando a comunicação interdepartamental.
+3. **Visibilidade Operacional:** Conexão dos dados gerados nos workflows com painéis de acompanhamento para monitorar o volume de chamados, prazos de entrega e produtividade das equipes.
 
-* **Soberania de Dados (Desde 2023):** O *pipeline* em Python garantiu a consolidação, em base de dados própria (MySQL), de **todo o histórico de negociações e movimentações de funis desde 2023**.
-* **Otimização de Custos:** A infraestrutura desenvolvida entregou nível de rastreabilidade de *Enterprise Data Warehouse* com o menor custo de licenciamento possível, consolidando dados fora do CRM.
-* **Habilitação Analítica (Data-Driven):** Com os dados estruturados no MySQL, o ambiente ficou perfeitamente integrado à *stack* de BI, permitindo o cruzamento da performance comercial com as métricas de esforço da engenharia.
+---
+
+> *"Workflows eficientes não servem apenas para organizar tarefas; eles dão transparência à operação e permitem identificar oportunidades reais de automação e ganho de escala."*
