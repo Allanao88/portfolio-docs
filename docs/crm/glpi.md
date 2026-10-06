@@ -1,25 +1,34 @@
-# GLPI & Gestão de Incidentes / Ativos
+# GLPI 11 & Governança de Serviços de TI (ITSM)
 
-O **GLPI** (*Gestionnaire Libre de Parc Informatique*) desempenha um papel central na governança de TI, controle de ativos, gestão de chamados e suporte aos usuários. Minha atuação nesta ferramenta foi além do suporte diário: atuei como **ponto focal técnico principal** em projetos críticos de infraestrutura da ferramenta, com destaque para a migração e implantação da versão **GLPI 11**.
+Uma plataforma de Service Desk robusta é o que garante que a operação de uma empresa não pare. Minha vivência com o **GLPI** vai muito além do suporte diário ou parametrização básica: atuei no *core* da infraestrutura da ferramenta, liderando desafios de arquitetura e transição de sistemas.
 
----
-
-## 🚀 Destaque do Projeto: Implantação e Migração para o GLPI 11
-
-Como ponto focal técnico, liderei a jornada completa de evolução da plataforma de Service Desk da empresa:
-* **Planejamento e Arquitetura:** Concepção da estratégia de transição de ambiente para a nova versão, avaliando impactos, compatibilidade de banco de dados e requisitos de infraestrutura.
-* **Execução da Migração:** Condução técnica da migração de versão dentro da empresa, garantindo a integridade dos dados históricos, histórico de chamados, base de conhecimento e estrutura de ativos.
-* **Configuração Avançada e Homologação:** Parametrização de perfis, regras de atribuição, fluxos de atendimento e automações nativas da nova versão para otimizar o tempo de resposta das equipes.
-* **Mitigação de Riscos e Estabilização:** Acompanhamento pós-implantação (*go-live*), resolução rápida de desvios e garantia de estabilidade para todos os departamentos usuários.
+O grande marco dessa trajetória foi atuar como **ponto focal técnico na configuração e migração corporativa para o GLPI 11**, um projeto que exigiu visão sistêmica, conhecimento em banco de dados e planejamento rigoroso para garantir *zero downtime* na operação.
 
 ---
 
-## 🛠️ Atuação Contínua e Sustentação
+## 🚀 O Desafio Técnico: Migração para o GLPI 11
 
-* **Suporte Estruturado e Governança:** Atendimento a incidentes e solicitações, servindo como referência técnica para dúvidas e melhorias contínuas no uso da ferramenta.
-* **Integração com Operações:** Conexão dos dados gerados no GLPI com rotinas de análise e painéis de indicadores (Power BI e Grafana) para monitoramento de SLA e volumetria de suporte.
-* **Padronização de Processos:** Alinhamento dos fluxos do GLPI com as demais ferramentas de workflow da empresa (como o Bitrix24), assegurando sinergia no atendimento interno.
+Atualizar o sistema central de chamados e ativos de uma operação em andamento é um procedimento de alto risco. Como líder técnico dessa frente, fui responsável por orquestrar a transição de ponta a ponta:
+
+* **Arquitetura e Infraestrutura:** Preparação do ambiente hospedeiro (`Linux`) e validação de requisitos sistêmicos, garantindo a compatibilidade de pacotes e extensões exigidas pela nova arquitetura da versão 11.
+* **Integridade de Banco de Dados:** Tratativas prévias no banco de dados (`MySQL`) para assegurar que todo o histórico de chamados, base de conhecimento, SLAs e inventário de rede fossem migrados sem corrupção ou perda de dados.
+* **Homologação e Rollout:** Mapeamento das regras de negócio legadas (perfis de usuário, fluxos de aprovação e matrizes de roteamento) para adequação aos novos padrões e automações nativas do GLPI 11.
+* **Estabilização (Go-Live):** Atuação direta no troubleshooting pós-implantação, ajustando permissões e corrigindo desvios operacionais em tempo real para minimizar o impacto nos departamentos usuários.
+
+## 🛠️ Integração, Automação e Observabilidade
+
+Um sistema de chamados só atinge seu potencial máximo quando se torna transparente para a gestão. Para agregar inteligência ao GLPI, apliquei conceitos de dados e observabilidade:
+
+* **Métricas em Tempo Real:** Conexão do banco de dados do GLPI com ferramentas de BI e monitoramento. Extraí e modelei dados para alimentar painéis no **Power BI** e dashboards operacionais no **Grafana**.
+* **Gestão de SLAs e Gargalos:** A partir dos dashboards construídos, a gestão passou a ter visibilidade imediata sobre o volume de incidentes, tempo médio de resposta (TMA/TME) e eficiência das equipes de atendimento.
+* **Automação de Workflows:** Parametrização avançada para garantir que incidentes de infraestrutura ou solicitações de rotina fossem direcionados automaticamente para as filas corretas, reduzindo o *overhead* do nível 1 (N1).
+
+## 📊 Impacto de Negócio
+
+* **Modernização Tecnológica:** Entrega de um ambiente ITSM atualizado, mais rápido, seguro e aderente às necessidades de escalabilidade da empresa.
+* **Governança de Dados Baseada em Fatos:** A substituição do "achismo" operacional por indicadores visuais claros, permitindo dimensionamento correto de equipes e identificação rápida de problemas crônicos na infraestrutura.
+* **Confiabilidade Operacional:** Garantia de que a esteira de suporte da empresa funcionasse de maneira fluida, estável e altamente rastreável.
 
 ---
 
-> *"Gerenciar uma plataforma de Service Desk em nível de infraestrutura exige precisão técnica, planejamento de migração rigoroso e foco total na experiência do usuário para garantir que a operação nunca pare."*
+> *"Liderar a migração de um sistema crítico exige mais do que seguir manuais; exige proteger os dados históricos, estabilizar a infraestrutura e garantir que, no dia seguinte, a operação acorde melhor do que foi dormir."*
