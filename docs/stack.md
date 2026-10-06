@@ -30,6 +30,7 @@ Minha stack é orientada para sustentação de ambientes críticos, engenharia d
 
 ### 5. Business Intelligence & Analytics
 * **Power BI:** Desenvolvimento de relatórios estratégicos e operacionais, acompanhamento de indicadores de desempenho e apoio à tomada de decisão.
+* **Grafana:** Desenvolvimento de dashboards estratégicos e operacionais, acompanhamento de indicadores de desempenho e apoio à tomada de decisão.
 * **Macros VBA / Excel Avançado:** Automação de rotinas e relatórios gerenciais legados.
 
 ---
