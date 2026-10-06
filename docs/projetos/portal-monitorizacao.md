@@ -1,4 +1,14 @@
-# Portal de Observabilidade e Diagnóstico Autônomo de Dados
+# Portal de Observabilidade DBA + IA
+
+> Case técnico existente do portfólio.
+
+## Objetivo
+
+Centralizar informações de operação, bancos, monitoramento e diagnóstico em uma interface única.
+
+## Tecnologias
+
+`Python` `FastAPI` `Grafana` `MySQL` `APIs`
 
 ## 1. Visão Executiva
 

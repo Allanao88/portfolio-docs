@@ -1,4 +1,10 @@
-# ITSM, Governança de TI e Consolidação de Dados (GLPI)
+# Service Desk & SLAs — GLPI
+
+Case relacionado à gestão de chamados, indicadores operacionais e processos de ITSM.
+
+## Objetivo
+
+Organizar dados de atendimento e transformar informações de chamados em indicadores úteis para operação e gestão.
 
 ## 1. Visão Executiva e Governança de Serviços
 

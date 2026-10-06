@@ -1,4 +1,12 @@
-# Engenharia de Resiliência e Disaster Recovery (RCA)
+# Resiliência & RCA
+
+## Objetivo
+
+Registrar casos de troubleshooting e análise de causa raiz de forma técnica e reutilizável.
+
+## Estrutura sugerida
+
+**Sintoma → evidências → hipótese → diagnóstico → ação → validação → prevenção**
 
 ## 1. Visão Executiva e Governança de Dados
 

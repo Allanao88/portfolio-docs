@@ -1,30 +1,45 @@
 site_name: Allan Augusto | Data Engineering & DBA
 site_url: https://Allanao88.github.io/portfolio-docs/
-site_description: Portefólio Técnico de Engenharia de Dados e DBA
+site_description: Portfólio técnico de Allan Augusto — Data Engineering, DBA, automação e observabilidade.
+site_author: Allan Augusto
 
 theme:
   name: material
+  language: pt-BR
   features:
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.tabs
     - navigation.sections
     - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - toc.follow
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  font:
+    text: Inter
+    code: JetBrains Mono
+  favicon: assets/favicon.svg
+  logo: assets/logo.svg
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Mudar para modo escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: Mudar para modo claro
 
 extra:
@@ -35,15 +50,23 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/allan-augusto-carvalho-de-oliveira-102b985b
       name: Allan no LinkedIn
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Início: index.md
-  - Engenharia & Projetos:
-    - Observabilidade DBA e IA: projetos/portal-monitorizacao.md
-    - Arquitetura Apache Airflow: projetos/airflow-observabilidade.md
-  - DBA & Operações:
-    - Resiliência e RCA: dba/resiliencia-rca.md
-    - Scripts e Automações: dba/scripts.md
-  - Gestão & ITSM:
-    - Automação Corporativa (Bitrix24): crm/bitrix24.md
-    - Service Desk & SLAs (GLPI): crm/glpi.md
+  - Projetos:
+      - Visão geral: projetos/index.md
+      - Portal de Observabilidade DBA + IA: projetos/portal-monitorizacao.md
+      - Arquitetura Apache Airflow: projetos/airflow-observabilidade.md
+  - DBA & Dados:
+      - Resiliência e RCA: dba/resiliencia-rca.md
+      - Scripts e Automações: dba/scripts.md
+  - Automação & ITSM:
+      - Bitrix24: crm/bitrix24.md
+      - GLPI: crm/glpi.md
+  - Sobre:
+      - Perfil profissional: sobre.md
+      - Stack tecnológica: stack.md

@@ -1,4 +1,8 @@
-# Automação Corporativa e Integração de CRM (Bitrix24)
+# Automação Corporativa — Bitrix24
+
+## Tecnologias
+
+`Bitrix24` `Python` `REST API` `SQL`
 
 ## 1. Visão Executiva e Governança de Processos
 

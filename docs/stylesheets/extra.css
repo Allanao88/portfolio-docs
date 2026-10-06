@@ -1,0 +1,58 @@
+:root {
+    --md-primary-fg-color: #0f172a;
+    --md-primary-fg-color--light: #1e293b;
+    --md-primary-fg-color--dark: #020617;
+
+    --md-accent-fg-color: #06b6d4;
+}
+
+/* Links */
+.md-typeset a {
+    color: #0891b2;
+}
+
+/* Código */
+code {
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* Cards */
+.md-typeset .grid.cards>ul>li {
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-typeset .grid.cards>ul>li:hover {
+    transform: translateY(-3px);
+}
+
+/* Títulos */
+.md-typeset h1 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+    font-weight: 650;
+}
+
+/* Header */
+.md-header {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer */
+.md-footer {
+    margin-top: 40px;
+}
+
+/* Tags */
+.md-typeset .md-button {
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Blocos de destaque */
+.md-typeset .admonition {
+    border-radius: 10px;
+}

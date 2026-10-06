@@ -1,4 +1,16 @@
-# Automação de Rotinas e Scripts
+# Scripts & Automações
+
+Coleção de automações e utilitários desenvolvidos para reduzir tarefas manuais e padronizar operações.
+
+## Categorias
+
+- Manutenção
+- ETL / ELT
+- Validação
+- Monitoramento
+- Rotinas administrativas
+- Integrações
+
 ## 1. Visão Executiva (Redução de Toil)
 
 Na engenharia de confiabilidade (SRE/DBA), a automação é a principal ferramenta para reduzir o *toil* (trabalho manual, repetitivo e sem valor arquitetural) e mitigar o erro humano. 

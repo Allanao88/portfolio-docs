@@ -1,4 +1,12 @@
-# Orquestração e Observabilidade de Dados com Apache Airflow
+# Arquitetura Apache Airflow
+
+## Objetivo
+
+Orquestrar rotinas de dados e automações operacionais de forma centralizada, rastreável e reproduzível.
+
+## Tecnologias
+
+`Apache Airflow` `Docker` `Python` `Linux` `ETL`
 
 ## 1. O Desafio Arquitetural (O Legado)
 
