@@ -1,111 +1,55 @@
-<div class="hero">
-  <div class="hero-content">
-    <div class="eyebrow">DATA ENGINEERING · DBA · AUTOMATION</div>
-    <h1>Allan Augusto</h1>
-    <p class="hero-title">Dados que sustentam sistemas. Sistemas que sustentam o negócio.</p>
-    <p class="hero-text">
-      Profissional de dados com atuação em <strong>DBA, Engenharia de Dados,
-      automação, observabilidade e ITSM</strong>, transformando problemas
-      operacionais em soluções monitoráveis, reproduzíveis e escaláveis.
-    </p>
-    <div class="hero-actions">
-      <a class="md-button md-button--primary" href="projetos/">Ver projetos</a>
-      <a class="md-button" href="sobre/">Sobre mim</a>
-    </div>
-  </div>
-</div>
+# Allan Augusto | Data Engineering &amp; DBA
 
-<div class="stats-grid">
-  <div class="stat-card">
-    <span class="stat-value">DBA</span>
-    <span class="stat-label">Banco de dados & operação</span>
-  </div>
-  <div class="stat-card">
-    <span class="stat-value">ETL/ELT</span>
-    <span class="stat-label">Pipelines & integração</span>
-  </div>
-  <div class="stat-card">
-    <span class="stat-value">Python</span>
-    <span class="stat-label">Automação & dados</span>
-  </div>
-  <div class="stat-card">
-    <span class="stat-value">Observability</span>
-    <span class="stat-label">Métricas, logs & RCA</span>
-  </div>
-</div>
+**DATA ENGINEERING · DBA · DATA INFRASTRUCTURE**
 
-## O que eu construo
+### Allan Augusto
 
-<div class="grid cards">
-  <ul>
-    <li>
-      <span class="card-icon">▣</span>
-      <h3>Engenharia de Dados</h3>
-      <p>Pipelines, ETL/ELT, orquestração e integração de fontes para transformar dados operacionais em informação confiável.</p>
-    </li>
-    <li>
-      <span class="card-icon">◈</span>
-      <h3>DBA & Performance</h3>
-      <p>Diagnóstico, resiliência, tuning, índices, troubleshooting e análise de causa raiz em ambientes de banco de dados.</p>
-    </li>
-    <li>
-      <span class="card-icon">⌁</span>
-      <h3>Automação</h3>
-      <p>Automação de tarefas repetitivas com Python, scripts, APIs e jobs orquestrados.</p>
-    </li>
-    <li>
-      <span class="card-icon">◉</span>
-      <h3>Observabilidade</h3>
-      <p>Monitoramento técnico com métricas, dashboards, alertas e processos orientados a evidências.</p>
-    </li>
-  </ul>
-</div>
+*Engenharia de Dados, Bancos de Dados Críticos, Automação Linux e Interfaces Operacionais.*
 
-## Projetos em destaque
+Profissional de tecnologia focado em administração de bancos de dados, Engenharia de Dados, pipelines ETL/ELT, automação e observabilidade. Atuo na construção e sustentação de arquiteturas que conectam dados, infraestrutura de servidores e operação de negócios, com foco constante em resiliência, desempenho, automação e eficiência operacional.
 
-<div class="project-grid">
-  <a class="project-card" href="projetos/portal-monitorizacao/">
-    <div class="project-kicker">01 · OBSERVABILIDADE</div>
-    <h3>Portal de Observabilidade DBA + IA</h3>
-    <p>Centralização de indicadores, diagnóstico operacional e informações de bancos e serviços em uma interface única.</p>
-    <div class="tags"><span>Python</span><span>FastAPI</span><span>Grafana</span><span>MySQL</span></div>
-  </a>
+[Ver Projetos](projetos/index.md) | [Sobre Mim](sobre.md)
 
-  <a class="project-card" href="projetos/airflow-observabilidade/">
-    <div class="project-kicker">02 · DATA ENGINEERING</div>
-    <h3>Arquitetura Apache Airflow</h3>
-    <p>Orquestração de rotinas de dados com DAGs, Docker, execução de scripts e controle operacional.</p>
-    <div class="tags"><span>Airflow</span><span>Docker</span><span>Python</span><span>ETL</span></div>
-  </a>
-
-  <a class="project-card" href="dba/resiliencia-rca/">
-    <div class="project-kicker">03 · DBA</div>
-    <h3>Resiliência & RCA</h3>
-    <p>Casos técnicos de troubleshooting, performance, incidentes e análise de causa raiz em ambientes de produção.</p>
-    <div class="tags"><span>MySQL</span><span>SQL Server</span><span>Linux</span><span>RCA</span></div>
-  </a>
-</div>
-
-## Stack
-
-<div class="stack-list">
-  <span>Python</span><span>SQL</span><span>MySQL / Percona</span><span>SQL Server</span>
-  <span>Apache Airflow</span><span>Docker</span><span>Linux</span><span>Grafana</span>
-  <span>Power BI</span><span>Streamlit</span><span>Git</span><span>APIs</span>
-</div>
-
-## Como eu penso
-
-!!! quote "Princípio"
-    **Automação sem observabilidade vira caixa-preta. Observabilidade sem ação vira dashboard.**
-
-    Meu objetivo é construir soluções em que dados, infraestrutura e operação estejam conectados:
-    detectar, entender, agir e registrar.
+DBA | MySQL Percona | SQL Server | Linux &amp; Shell | ETL/ELT | Apache Airflow | Docker | Python | HTML5 &amp; CSS3 | RCA
 
 ---
 
-<div class="cta">
-  <h2>Quer conhecer os detalhes?</h2>
-  <p>Explore os projetos para ver arquitetura, decisões técnicas, problemas encontrados e soluções implementadas.</p>
-  <a class="md-button md-button--primary" href="projetos/">Explorar portfólio</a>
-</div>
+## O que eu faço
+
+* **DBA &amp; Performance:** Administração, monitoramento, troubleshooting, query tuning e análise de desempenho em ambientes de alta criticidade MySQL Percona e SQL Server em servidores Linux.
+* **Engenharia de Dados:** Desenvolvimento e sustentação de pipelines ETL/ELT em Python, integração de fontes heterogêneas e orquestração containerizada de cargas com Apache Airflow e Docker.
+* **Automação &amp; Shell Scripting:** Desenvolvimento de scripts em Python e Shell Script (Bash) para eliminação de tarefas manuais, integração via APIs REST e rotinas de manutenção em ambiente Linux.
+* **Observabilidade &amp; Interfaces Web:** Construção de portais de monitoria operacionais e painéis customizados utilizando HTML5, CSS3, Streamlit, FastAPI, Grafana e Power BI, unindo diagnóstico técnico (RCA) e métricas de negócio.
+
+---
+
+## Projetos em Destaque
+
+### 01 · [Portal de Observabilidade DBA + Monitorias DCI](projetos/portal-monitorizacao.md)
+
+Centralização de indicadores, informações operacionais e recursos de diagnóstico para sustentação de ambientes de dados, unindo Python (FastAPI), interfaces nativas em HTML5/CSS3 e Grafana. *Tecnologias:* Python, FastAPI, HTML5/CSS3, Grafana, MySQL
+
+### 02 · [Arquitetura Apache Airflow &amp; Automação Linux](projetos/airflow-observabilidade.md)
+
+Orquestração de pipelines e rotinas de dados utilizando DAGs em Python, executadas de forma containerizada com Docker e integradas a wrappers em Shell Script no Linux. *Tecnologias:* Airflow, Docker, Python, Shell Script, ETL
+
+### 03 · [Resiliência, Troubleshooting &amp; RCA](dba/resiliencia-rca.md)
+
+Casos práticos de troubleshooting, mitigação de crashes, otimização de consultas (tuning) e Análise de Causa Raiz em ambientes de produção com MySQL Percona, SQL Server e Linux. *Tecnologias:* MySQL Percona, SQL Server, Linux, RCA, Tuning
+
+---
+
+## Stack Principal
+
+* **Linguagens &amp; Scripts:** Python · SQL · Shell Script / Bash · HTML5 · CSS3
+* **Bancos de Dados &amp; DBA:** MySQL / Percona Server · SQL Server · Análise de Causa Raiz (RCA) · Query Tuning
+* **Engenharia &amp; Infraestrutura:** Apache Airflow · Docker · Linux · APIs REST · Git
+* **Observabilidade &amp; BI:** Grafana · Power BI · FastAPI · Streamlit
+
+---
+
+## Como eu penso
+
+&gt; **Princípio de Engenharia:** *"Automação sem observabilidade vira caixa-preta. Observabilidade sem ação vira dashboard."*
+
+&gt; Busco construir arquiteturas em que dados, infraestrutura e operação estejam permanentemente conectados para **detectar, entender, agir e registrar**.

@@ -1,56 +1,40 @@
-# Portal de Observabilidade DBA + IA
+# Portal de Observabilidade DBA + Monitorias DCI
 
-> Case técnico existente do portfólio.
-
-## Objetivo
-
-Centralizar informações de operação, bancos, monitoramento e diagnóstico em uma interface única.
-
-## Tecnologias
-
-`Python` `FastAPI` `Grafana` `MySQL` `APIs`
-
-## 1. Visão Executiva
-
-O **Portal de Observabilidade de Engenharia de Dados** é uma solução corporativa de alta performance desenvolvida para centralizar a gestão de infraestrutura de bases de dados, orquestração de *pipelines* e métricas operacionais das equipas.
-
-O grande diferencial arquitetural da plataforma é a integração nativa com um **Motor de Inteligência Artificial Local (LLM)**. Este ecossistema atua de forma autónoma no diagnóstico de falhas em *pipelines* de dados, reduzindo drasticamente o *Mean Time to Resolution* (MTTR) e transformando a postura da equipa de reativa para proativa.
+O monitoramento tradicional apenas avisa quando um serviço cai; a observabilidade moderna explica o porquê e como evitar que volte a acontecer. O **Portal de Observabilidade DBA + Monitorias DCI** nasceu da necessidade de centralizar indicadores operacionais, cruzar métricas de infraestrutura de dados e fornecer interfaces nativas de diagnóstico para acelerar a resposta a incidentes.
 
 ---
 
-## 2. Proposta de Valor e Funcionalidades Core
+## 🎯 O Desafio Operacional
 
-### 🧠 Diagnóstico Autônomo com IA (Observabilidade Inteligente)
-*   **Análise de Root Cause em Tempo Real:** O sistema monitoriza continuamente o orquestrador de dados (Apache Airflow). Ao detetar uma falha (ex: DAG/Task interrompida), extrai os logs físicos e submete os *tracebacks* a um motor LLM operando em infraestrutura local.
-*   **Zero Data-Leakage (Privacidade):** A utilização de IA local (modelo *Qwen2.5-Coder* conteinerizado) garante que nenhum dado sensível de infraestrutura ou log de erro é enviado para APIs externas na *cloud*.
-*   **Leitura Imersiva para Engenheiros:** Interface otimizada com painéis laterais dinâmicos (*Offcanvas/Drawer*) que exibem as análises e *code blocks* gerados pela IA sem quebrar o layout da grelha de monitorização.
-
-### 📊 Gestão de Infraestrutura e Governança de Dados
-*   **Monitoria Multi-Motor:** Acompanhamento de indicadores de saúde, capacidade (disco, buffers, réplicas) e eventos anómalos em instâncias relacionais críticas (MySQL, SQL Server e PostgreSQL).
-*   **Dashboards Executivos:** Painel central com gráficos interativos de eficiência operacional, distribuição de carga e saúde dos serviços em tempo real.
-
-### 🛠️ Gestão de Incidentes e Produtividade Corporativa
-*   **Integração ITSM Integrada:** Conexão fluida com sistemas corporativos de gestão de chamados (*ticketing*) e plataformas de acompanhamento de produtividade (*Task Management*), consolidando a carga de trabalho da engenharia.
-*   **Visão Unificada (Single Pane of Glass):** Agregação de dados de infraestrutura e gestão num único painel, eliminando a necessidade de alternar entre múltiplas ferramentas durante o *troubleshooting* crítico.
+Em ambientes complexos suportados por múltiplos servidores **MySQL Percona** e **SQL Server** em **Linux**, a investigação de um gargalo de desempenho frequentemente exige que a equipe acesse ferramentas desconexas (logs do sistema operacional, métricas de rede, Zabbix, *slow query logs*). O objetivo deste projeto foi eliminar a fragmentação de informações, construindo uma plataforma unificada que integre backend analítico e interfaces web operacionais customizadas.
 
 ---
 
-## 3. Arquitetura e Stack Tecnológica
+## 🛠️ Arquitetura e Engenharia End-to-End
 
-A aplicação adota uma arquitetura leve e escalável, focada em segurança, velocidade de resposta e facilidade de *deploy*.
+A solução foi construída unindo backend em Python, integrações via APIs REST, visualização de métricas e desenvolvimento de interfaces web operacionais nativas:
 
-*   **Backend (Maestro da API):** Desenvolvido em **Python 3** com o framework assíncrono **FastAPI**. Gere as conexões seguras aos motores de dados através de conectores nativos otimizados (PyMySQL, PyODBC, Psycopg2).
-*   **Camada de Segurança:** Proteção de todos os *endpoints* através de **JWT** (JSON Web Tokens) com controle de acessos baseado em perfis (RBAC - Admin / Operador / Leitura). Nenhuma credencial é exposta no código-fonte, utilizando injeção estrita por variáveis de ambiente.
-*   **Frontend (Direct-to-API):** Interface construída com padrões web puros (HTML5, CSS3, Vanilla JS), sem dependência de *frameworks* pesados de compilação, garantindo *load times* na casa dos milissegundos. Utiliza *Chart.js* para renderização estatística de alta fidelidade.
-*   **Motor de Inteligência Artificial:** Infraestrutura Dockerizada executando o Ollama Server em instâncias dedicadas.
+* **Backend &amp; Motores de Diagnóstico:** Desenvolvimento do ecossistema em **Python** (com **FastAPI**), responsável por consumir dados estruturados dos SGBDs, processar chamadas de API e consolidar logs operacionais em frações de segundo.
+* **Interfaces Web Operacionais (Portal DCI):** Construção de páginas de monitoria responsivas e amigáveis utilizando **HTML5** e **CSS3** nativos (`monitorias_dci/`), garantindo acesso rápido e leve aos status de infraestrutura por equipes técnicas e operacionais.
+* **Dashboards &amp; Séries Temporais:** Integração direta com o **Grafana** e **Streamlit** para renderização de gráficos em tempo real, tendências de consumo de hardware e acompanhamento de métricas de tráfego.
+* **Diagnóstico Pró-ativo &amp; RCA:** Implementação de recursos focados em Análise de Causa Raiz (*Root Cause Analysis* \- RCA), destacando *queries* ofensoras, contenção de *locks* e anomalias de replicabilidade (*replication lag*) antes que afetem o usuário final.
 
 ---
 
-## 4. O Fluxo de Diagnóstico da Pipeline de Dados
+## 🔍 Principais Funcionalidades
 
-A arquitetura do pipeline de inferência foi desenhada para operar de forma transparente em *background*:
+* **Visão Holística da Infraestrutura:** Centralização dos indicadores de saúde dos clusters de banco de dados (processamento, I/O de disco, conexões ativas e status de replicação) em um único portal web.
+* **Troubleshooting Acelerado:** Painéis integrados para investigar desvios de comportamento em tempo real, permitindo a identificação imediata da origem de um problema de lentidão sem necessidade de garimpar logs via terminal.
+* **Conexão entre Infraestrutura e Negócio:** Mapeamento do impacto técnico (como uma tabela temporariamente bloqueada) com o processo corporativo ou fila de atendimento afetada, garantindo visibilidade clara para gestores.
 
-1.  **Deteção Contínua:** Uma rotina assíncrona varre a fila de tarefas do orquestrador num intervalo de *polling* pré-definido.
-2.  **Extração e Sanitização:** Os logs de erro brutos gerados pelas aplicações falhas são extraídos e estruturados.
-3.  **Inferência Autónoma:** O texto é submetido ao LLM local, que elabora uma análise técnica estruturada com a identificação exata da quebra no código e a proposta de solução.
-4.  **Persistência e Sinalização:** A análise gerada é guardada no banco de dados operacional e o alerta é sinalizado visualmente na *dashboard* da equipa de engenharia.
+---
+
+## 📊 Impacto Operacional e de Negócio
+
+* **Redução do MTTR (** **Mean Time to Recovery** **):** A centralização de informações e o uso de telas operacionais dedicadas reduziram drasticamente o tempo necessário para identificar, diagnosticar e mitigar falhas em produção.
+* **Autonomia para as Equipes:** Transformação de dados brutos de telemetria e logs complexos em visões visuais acionáveis, dando autonomia às equipes de suporte N2/N3 e DBA.
+* **Arquitetura Escalável:** O modelo baseado em APIs REST em Python e interfaces web desconectadas permite acoplar novos servidores, bancos de dados ou módulos de monitoria com mínimo atrito.
+
+---
+
+&gt; **Princípio de Observabilidade:** *"Automação sem observabilidade vira caixa-preta. Observabilidade sem ação vira dashboard."*

@@ -1,94 +1,49 @@
-# Scripts & Automações
+# Scripts, Automações &amp; Sustentação de SGBDs
 
-Coleção de automações e utilitários desenvolvidos para reduzir tarefas manuais e padronizar operações.
-
-## Categorias
-
-- Manutenção
-- ETL / ELT
-- Validação
-- Monitoramento
-- Rotinas administrativas
-- Integrações
-
-## 1. Visão Executiva (Redução de Toil)
-
-Na engenharia de confiabilidade (SRE/DBA), a automação é a principal ferramenta para reduzir o *toil* (trabalho manual, repetitivo e sem valor arquitetural) e mitigar o erro humano. 
-
-Este repositório documenta os principais *scripts* e rotinas automatizadas em Bash e Python utilizados para gestão de estado, *backups* lógicos a quente e sincronização de topologia nos *clusters* de bases de dados relacionais.
+A administração eficiente de bancos de dados modernos exige a eliminação sistemática de tarefas manuais repetitivas. A página de **Scripts, Automações e Sustentação de SGBDs** reúne a documentação de rotinas desenvolvidas para automatizar a manutenção de infraestruturas **MySQL Percona** e **SQL Server**, garantir a segurança de credenciais e integrar bancos de dados a rotinas operacionais no **Linux**.
 
 ---
 
-## 2. Backup Lógico Otimizado (Hot Backup)
+## 🎯 O Objetivo das Automações
 
-Em ambientes 24/7 com alta concorrência transacional, os *backups* lógicos não podem causar bloqueios de tabela (*Table Locks*). O *script* abaixo é utilizado para extrair dados massivos (ex: histórico de tabelas core) garantindo a consistência através de *snapshots* transacionais.
-
-### 📦 Exportação com Compressão On-The-Fly
-```bash
-# Execução do dump garantindo consistência transacional sem lock de leitura/escrita
-sudo mysqldump asteriskcdrdb chamadas_backup \
-  --quick \
-  --single-transaction \
-  --skip-extended-insert \
-  --complete-insert \
-  --insert-ignore \
-  --no-create-info \
-  --skip-add-locks | sudo gzip > /storage/bkp/chamadas_backup_$(date +%F).sql.gz
-```
-* **Engenharia aplicada:** O encadeamento (`| gzip`) evita que o *dump* não comprimido consuma excessivamente o I/O do disco local, transferindo a carga para a CPU e gravando diretamente o binário comprimido.
+Sistemas de bancos de dados em produção geram demandas diárias de manutenção, monitoramento de espaço, checagem de integridade e coleta de métricas. Executar essas atividades manualmente aumenta o risco de erro humano e consome tempo precioso da equipe. As automações foram desenvolvidas para funcionar de forma autônoma, auditável e resiliente em ambiente Linux.
 
 ---
 
-## 3. Configuration Management (Sincronização de Cluster)
+## 🛠️ Arquitetura das Automações
 
-Para garantir que os nós de um *cluster* (Master/Replicas) operem com a exata mesma parametrização, os ficheiros de configuração (`my.cnf`) devem ser geridos como código ou sincronizados ativamente.
+A estrutura de automação é dividida em módulos especializados, utilizando as melhores práticas de desenvolvimento e infraestrutura:
 
-### 🔄 Espelhamento de Configuração Paramétrica
-Em vez de edição manual em múltiplos nós, a rotina de sincronização sobre SSH garante a paridade do *tuning*:
-```bash
-#!/bin/bash
-# Sincronização do ficheiro de tuning (my.cnf) do Master primário para as instâncias B2 e M1
-DESTINOS=("10.0.0.12" "10.0.0.13")
-
-for IP in "${DESTINOS[@]}"; do
-  echo "Sincronizando my.cnf para $IP..."
-  sudo rsync -avz /etc/my.cnf root@$IP:/etc/ --progress
-done
-# Após a execução, um handler reinicia o serviço nos nós de destino
-```
+* **Módulos em Python:** Desenvolvimento de rotinas em **Python** (`python/`) para conexão segura a SGBDs, manipulação de conjuntos de dados, consumo de APIs REST e execução de validações lógicas complexas.
+* **Scripts de Infraestrutura em Shell (Bash):** Criação de rotinas em **Shell Script (** **.sh** **)** para execução direta no terminal Linux, cobrindo rotinas de backup, limpeza de arquivos temporários, monitoramento de uso de disco e chamadas de sistema.
+* **Containerização com Dockerfile:** Padronização dos ambientes de execução de scripts através da criação de **Dockerfiles** dedicados, isolando bibliotecas e garantindo que os scripts rodem com o mesmo comportamento em qualquer servidor.
+* **Conectividade Segura a SGBDs:** Implementação de drivers de conexão (*pooling* e conexões assíncronas) parametrizados para comunicação eficiente com instâncias **MySQL Percona** e **SQL Server**.
 
 ---
 
-## 4. Sincronização Física de Dados a Frio
+## 🔍 Principais Rotinas Desenvolvidas
 
-Durante processos de *Disaster Recovery* ou clonagem de ambientes massivos, a migração lógica é demasiado lenta. Nestes casos, acionamos *scripts* de transferência física de blocos, filtrando estritamente as extensões permitidas.
-
-### 🚀 Clonagem Incremental de Ficheiros Físicos
-```bash
-#!/bin/bash
-# Sincronização de blocos físicos, ignorando metadados e motores corrompidos
-DIR_ORIGEM="/dbdir/mysql_crash_20240909/asteriskcdrdb/"
-DIR_DESTINO="/dbdir/mysql/asteriskcdrdb/"
-
-sudo rsync -avn $DIR_ORIGEM $DIR_DESTINO \
-  --exclude="*.frm" \
-  --exclude="*.ibd" \
-  --exclude="*.TRG" \
-  --exclude="*.TRN" \
-  --exclude="*.par" \
-  --exclude="*.opt" \
-  --progress
-```
-* **Engenharia aplicada:** O uso da flag `-n` (*dry-run*) na primeira execução atua como uma validação de segurança antes da efetivação (`-v` verbose). A exclusão estrita (`--exclude`) garante que os *tablespaces* não sofram corrupção cruzada durante o *recovery*.
+* **Coleta de Métricas e Health Check:** Scripts programados para checar periodicamente o status das instâncias, espaço em disco, consumo de memória, tempo de execução de *queries* e estado das filas de replicação.
+* **Integração via APIs REST:** Automação do envio de alertas e eventos operacionais para plataformas de comunicação ou sistemas de chamados (como Bitrix24 e GLPI), conectando eventos de banco de dados diretamente ao fluxo de trabalho da equipe.
+* **Purga e Retenção Automatizada:** Rotinas seguras para expurgo de dados obsoletos, rotação de logs e manutenção de tabelas históricas, prevenindo o esgotamento de armazenamento no servidor.
+* **Exportação e Processamento de Dados:** Scripts de extração e conversão automatizada de relatórios em múltiplos formatos para apoio a auditorias e rotinas operacionais.
 
 ---
 
-## 5. Integração e Gatilhos de Aplicação
+## 🔒 Segurança e Boas Práticas
 
-A administração de bases de dados em ecossistemas de alta criticidade não ocorre num vácuo. A resolução de um incidente no motor frequentemente requer o acionamento de gatilhos nas aplicações que consomem esses dados.
+* **Gestão de Credenciais:** Supressão total de senhas ou chaves de acesso gravadas diretamente no código (*hardcoded*). Todas as credenciais são injetadas dinamicamente via variáveis de ambiente e cofres de segredos.
+* **Tratamento de Exceções &amp; Logs:** Todos os scripts possuem blocos de tratamento de erros (`try/except` em Python e checagem de *exit status* em Shell), gravando logs estruturados para auditoria.
+* **Execução Sem Impacto:** Rotinas de manutenção intensiva são projetadas para rodar com controle de concorrência ou em horários de menor tráfego, evitando contenção de recursos ou bloqueios em tabelas de produção.
 
-```bash
-# Gatilhos acionados via terminal após sincronização de base para atualizar os dados de telecom
-sudo /root/devbin/sync_anatel_prefixos <servidor_alvo>
-sudo /var/lib/callflex/bin/emergencia
-```
+---
+
+## 📊 Impacto Operacional e de Negócio
+
+* **Sustentação Preventiva:** Redução drástica de incidentes causados por falta de espaço em disco ou falhas não detectadas de replicação.
+* **Padronização de Procedimentos:** Eliminação de variações operacionais entre membros da equipe, garantindo que as rotinas sigam exatamente o mesmo protocolo técnico.
+* **Eficiência Operacional:** Liberação da equipe de DBA e infraestrutura de tarefas operacionais braçais, permitindo foco em otimização de performance (*tuning*) e arquitetura.
+
+---
+
+&gt; **Princípio de Automação:** *"Se uma tarefa precisa ser executada mais de duas vezes da mesma forma, ela deve ser transformada em código."*

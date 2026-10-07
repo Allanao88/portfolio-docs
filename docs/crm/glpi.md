@@ -1,40 +1,40 @@
-# Service Desk & SLAs — GLPI
+# GLPI 11 &amp; Governança ITSM
 
-Case relacionado à gestão de chamados, indicadores operacionais e processos de ITSM.
-
-## Objetivo
-
-Organizar dados de atendimento e transformar informações de chamados em indicadores úteis para operação e gestão.
-
-## 1. Visão Executiva e Governança de Serviços
-
-A maturidade de uma operação de TI mede-se pela sua capacidade de rastrear, priorizar e resolver incidentes de forma sistémica. 
-
-Este documento detalha a arquitetura de *IT Service Management* (ITSM) implementada no **GLPI**, focando não apenas na parametrização do *Service Desk*, mas sobretudo na engenharia de dados construída para consolidar métricas de múltiplas instâncias num único ecossistema analítico.
+A governança de TI e a eficiência do suporte operacional baseiam-se na aplicação prática dos princípios de ITSM (*IT Service Management*). A página de **GLPI 11 &amp; Governança ITSM** registra a atuação técnica e estratégica na sustentação, arquitetura e migração da plataforma GLPI para a versão 11, consolidando a gestão de incidentes, requisições, ativos e SLAs da infraestrutura corporativa.
 
 ---
 
-## 2. Estruturação Arquitetural do Service Desk
+## 🎯 O Desafio de Migração &amp; Governança
 
-Para garantir que os incidentes e requisições não fossem apenas "tickets isolados", mas sim processos governados, a plataforma foi estruturada com base nas melhores práticas:
-* **Catálogo de Serviços:** Mapeamento e categorização de ponta a ponta dos serviços de TI, infraestrutura e operações, parametrizando a entrada de dados.
-* **Gestão de Níveis de Serviço (SLA/OLA):** Implementação de regras temporais de tempo de resposta e tempo de resolução, assegurando o cumprimento de prazos contratuais consoante a prioridade do negócio.
-* **Roteamento Inteligente:** Criação de matrizes de decisão operacionais para atribuição e escalonamento automático de chamados com base na categoria, urgência e criticidade do impacto.
+A evolução das exigências operacionais e a necessidade de maior segurança, performance e novos recursos exigiram a modernização da plataforma de chamados. Atuando como **ponto focal técnico principal**, o desafio consistiu em planejar e executar a migração do ecossistema para o **GLPI 11**, garantindo compatibilidade de dados, estabilidade de ambiente e continuidade dos serviços de atendimento sem impacto para os usuários finais (*zero downtime*).
 
 ---
 
-## 3. Engenharia de Dados: Pipeline Multi-Instância
+## 🛠️ Arquitetura Técnica &amp; Projeto de Migração
 
-O maior desafio de arquitetura desta operação não era gerir uma ferramenta, mas sim resolver a fragmentação da informação. A infraestrutura da empresa opera com **4 instâncias independentes de GLPI**.
+A execução do projeto de migração e a sustentação do GLPI apoiam-se em fundações sólidas de infraestrutura e engenharia:
 
-Para eliminar estes silos de dados, foi desenhada uma arquitetura de integração de alto nível:
-* **Pipeline de Unificação (ETL):** Desenvolvimento de uma esteira de dados customizada que extrai os registos, metadados e tempos de atendimento das 4 instâncias de forma contínua.
-* **Repositório Centralizado (MySQL):** Todos os dados extraídos são normalizados e persistidos num único banco de dados relacional. Esta consolidação atua como a *Single Source of Truth* (Fonte Única da Verdade) para toda a gestão de suporte corporativo.
+* **Infraestrutura Linux &amp; Performance de Banco de Dados:** Preparação e otimização do servidor **Linux** para suportar a nova versão do GLPI, incluindo o ajuste fino do SGBD (**MySQL / MariaDB**), parametrização do PHP e configuração do servidor web para maximizar a velocidade de resposta da aplicação.
+* **Estratégia de Migração &amp; Validação de Integridade:** Planejamento detalhado das etapas de atualização do esquema de banco de dados, execução de testes de regressão em ambiente de homologação e validação da integridade do histórico de chamados, anexos e base de conhecimento.
+* **Estratégia de Disponibilidade (** **Zero Downtime** **):** Estruturação do plano de transição (*Go-Live*) focado na mitigação de riscos, permitindo a migração completa da base sem interrupção não planejada do atendimento operacional.
+* **Governança ITSM &amp; Estruturação de SLAs:** Reorganização do catálogo de serviços, matrizes de priorização de incidentes, regras de escalonamento e acompanhamento rigoroso dos prazos de atendimento (*Service Level Agreements* \- SLAs).
 
 ---
 
-## 4. Observabilidade e Business Intelligence
+## 🔍 Principais Entregas &amp; Governança
 
-Ao transferir os dados das bases distribuídas do GLPI para um modelo centralizado, desbloqueámos capacidades analíticas avançadas (Data-Driven ITSM):
-* **Grafana:** Conexão direta à base MySQL central para renderização de *dashboards* operacionais em tempo real (painéis de NOC), permitindo acompanhar o *backlog*, a volumetria de incidentes e a disponibilidade de ativos.
-* **Power BI e Integrações (Excel):** Consumo dos modelos relacionais para construção de relatórios executivos táticos. Permite o cruzamento de KPIs de produtividade (Tempo Médio de Atendimento, SLA cumprido vs. violado) e a identificação de tendências estruturais de falhas.
+* **Centralização do Atendimento de Infraestrutura:** Padronização de formulários e fluxos de atendimento para demandas de TI, bancos de dados, redes e sistemas corporativos.
+* **Gestão de Ativos &amp; Inventário:** Integração do inventário de hardware e software ao fluxo de atendimento, permitindo que incidentes sejam associados diretamente ao ativo afetado para facilitar diagnósticos e análises de causa raiz.
+* **Visões de Desempenho Operacional:** Extração de relatórios e métricas de atendimento (tempo de primeira resposta, tempo de resolução e volume de chamados por categoria) para suporte à tomada de decisão gerencial.
+
+---
+
+## 📊 Impacto Operacional e de Negócio
+
+* **Plataforma Modernizada e Segura:** Atualização bem-sucedida para o GLPI 11, garantindo suporte a novas funcionalidades, maior segurança contra vulnerabilidades e ganhos expressivos de performance.
+* **Transparência e Previsibilidade:** Métricas claras de cumprimento de SLA e visibilidade do volume de requisições por área de negócio.
+* **Confiança na Infraestrutura:** Garantia de continuidade do serviço através de um processo de transição técnico seguro e transparente para a organização.
+
+---
+
+&gt; **Princípio de Governança ITSM:** *"Ferramentas de ITSM não devem ser apenas registradoras de chamados: devem ser motores de inteligência operacional que garantem previsibilidade e cumprimento de SLAs."*

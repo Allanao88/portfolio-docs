@@ -1,96 +1,51 @@
-# Resiliência & RCA
+# Resiliência, Troubleshooting &amp; RCA
 
-## Objetivo
-
-Registrar casos de troubleshooting e análise de causa raiz de forma técnica e reutilizável.
-
-## Estrutura sugerida
-
-**Sintoma → evidências → hipótese → diagnóstico → ação → validação → prevenção**
-
-## 1. Visão Executiva e Governança de Dados
-
-A garantia de Alta Disponibilidade (HA) não reside apenas na replicação contínua, mas na capacidade de mitigação e recuperação rápida perante cenários de falha catastrófica. 
-
-Este documento detalha os **Procedimentos Operacionais Padrão (SOP)** e arquiteturas de *troubleshooting* aplicadas para garantir a resiliência dos motores de bases de dados relacionais (MySQL Percona e SQL Server) em ambientes de missão crítica.
+Sistemas de bancos de dados em produção são o coração de qualquer arquitetura de tecnologia. A página de **Resiliência, Troubleshooting e Análise de Causa Raiz (RCA)** documenta as metodologias, práticas e casos reais aplicados para solucionar incidentes críticos em ambientes **MySQL Percona** e **SQL Server** em servidores **Linux**, garantindo a continuidade do negócio e prevenindo a reincidência de falhas.
 
 ---
 
-## 2. Tuning de SO e Prevenção de Gargalos (OOM Killer)
+## 🎯 A Filosofia de Resiliência
 
-Para suportar ambientes com alta concorrência e milhares de conexões simultâneas, a configuração padrão do sistema operativo (Linux) e do Systemd gera frequentemente gargalos de *File Descriptors* e intervenções agressivas do *OOM (Out of Memory) Killer*.
-
-### ⚙️ Configuração de Limites (Systemd Override)
-A parametrização abaixo é injetada na inicialização do serviço MySQL (`override.conf`) para isolar o motor de dados das políticas de encerramento do *kernel* Linux em caso de *stress* de memória, garantindo estabilidade no processamento:
-
-```ini
-[Service]
-ExecStartPre=-/usr/bin/touch /var/log/log-slow-queries.log
-ExecStartPre=-/usr/bin/chown mysql:mysql /var/log/log-slow-queries.log
-LimitNOFILE=130000
-LimitNPROC=130000
-LimitMEMLOCK=130000
-OOMScoreAdjust=-1000  # Protege o processo do OOM Killer
-```
-
-### 📂 Isolamento de Storage (I/O)
-Para evitar que o crescimento da base de dados comprometa a partição raiz (`/var/lib`), o diretório de dados é migrado para um ponto de montagem dedicado (ex: `/dbdir`), otimizando o *throughput* de I/O:
-
-```bash
-# Paragem controlada dos serviços de aplicação e motor
-sudo systemctl stop mysqld
-
-# Migração física e criação de link simbólico para transparência da aplicação
-sudo mv /var/lib/mysql /dbdir/
-sudo ln -s /dbdir/mysql /var/lib/
-```
+Um ambiente de banco de dados verdadeiramente resiliente não é aquele que nunca enfrenta instabilidades, mas sim aquele projetado para **detectar precocemente, conter impactos, restabelecer a operação rapidamente e investigar a causa raiz**. A atuação vai além de "reiniciar serviços": o foco é identificar a origem exata do problema para implementar correções definitivas de arquitetura ou infraestrutura.
 
 ---
 
-## 3. Disaster Recovery (DR): Recuperação de Crashes
+## 🛠️ Metodologia de Troubleshooting &amp; Diagnóstico
 
-Em cenários de corrupção de *tablespaces* (ex: falhas de hardware ou *crashes* abruptos do *daemon*), o processo de *Root Cause Analysis* (RCA) dita o plano de ação adequado.
+Diante de um incidente crítico (como degradação acentuada de performance, esgotamento de conexões ou indisponibilidade de SGBD), o processo de investigação segue uma abordagem estruturada:
 
-### 🛡️ Recovery Estrutural (Sem Backup Válido)
-Quando o binlog ou os ficheiros `.ibd` são irrecuperavelmente corrompidos, utiliza-se a técnica de reconstrução estrutural isolando chaves e forçando a integridade referencial:
-
-1. **Isolamento:** *Backup* físico a frio do diretório corrompido (`cp -R -p /dbdir/mysql /dbdir/mysql_crash`).
-2. **Reconstrução:** *Drop* da base afetada e recriação da estrutura (DDL) a partir dos ficheiros de *dump* nativos.
-3. **Injeção de Dados (Sanitizada):** Importação dos dados com tratamento de conflitos (`INSERT IGNORE`) via `sed` para evitar interrupções por chaves duplicadas.
-4. **Sincronização de Motores Alternativos:** Uso de `rsync` paramétrico para migrar ficheiros físicos MyISAM (ignorando metadados corrompidos como `.frm` ou `.ibd` do InnoDB).
+* **Isolamento de Impacto:** Análise imediata de métricas do sistema operacional **Linux** (I/O de disco, saturação de CPU, consumo de memória swap e latência de rede) e status interno do SGBD.
+* **Identificação de Contenção e Locks:** Diagnóstico de processos bloqueados (*blocking queries*), impasses (*deadlocks*) e contenções em tabelas ou índices, liberando conexões de forma segura sem corromper a integridade dos dados.
+* **Análise do Slow Query Log:** Mapeamento de consultas sem índice, varreduras completas de tabela (*full table scans*) e rotinas de leitura intensiva que estejam sobrecarregando o mecanismo de armazenamento (*storage engine*).
+* **Leitura de Logs de Erro do SGBD &amp; OS:** Análise de logs do MySQL (`mysqld.log`), SQL Server (`ERRORLOG`) e logs do Linux (`dmesg`, `syslog`) para identificação de falhas de hardware, falta de memória (*OOM Killer*) ou corrupção de páginas.
 
 ---
 
-## 4. Capacity Planning: Migração de Storage (SQL Server)
+## 🔍 Frentes de Otimização &amp; Performance (Query Tuning)
 
-Como parte do plano de capacidade, é frequente a necessidade de migrar ficheiros físicos (MDF/LDF) de bases de dados massivas no **SQL Server** para *storages* mais rápidos (NVMe) ou de maior volume, minimizando o *downtime*.
-
-O procedimento arquitetado evita a necessidade morosa de *Backup & Restore*, alterando os apontamentos lógicos no *Master* e movendo os blocos físicos com a base momentaneamente em estado `OFFLINE`:
-
-```sql
--- 1. Modificação do Apontamento Lógico nos Metadados
-ALTER DATABASE [NomeDoBanco]
-MODIFY FILE (NAME = 'NomeLogicoDoMDF', FILENAME = 'E:\SQLServer\Data\NomeDoBanco.mdf');
-
--- 2. Congelamento Transacional (Isolamento)
-ALTER DATABASE [NomeDoBanco] SET OFFLINE WITH ROLLBACK IMMEDIATE;
-```
-*(Durante este lapso de segundos/minutos, os ficheiros físicos são migrados via PowerShell para a nova LUN preservando o ACL do serviço `NT SERVICE\MSSQLSERVER`).*
-
-```sql
--- 3. Reativação e Auditoria de Integridade
-ALTER DATABASE [NomeDoBanco] SET ONLINE;
-DBCC CHECKDB('NomeDoBanco') WITH NO_INFOMSGS;
-```
+* **Reorganização de Índices e Estatísticas:** Manutenção contínua e parametrização de atualização de estatísticas de otimizador no SQL Server e MySQL Percona, garantindo a escolha do melhor plano de execução (*execution plan*).
+* **Reescrita e Refatoração de Queries:** Ajuste de sintaxe SQL, eliminação de subconsultas ineficientes, conversão de operações implícitas e aplicação de técnicas de paginação eficiente para reduzir a carga de leitura.
+* **Ajuste Fino de Parâmetros de SGBD (** **Buffer Pool &amp; Memory Tuning** **):** Adequação dos parâmetros de memória e concorrência (como `innodb_buffer_pool_size`, `max_connections` e limites de I/O) à capacidade física real dos servidores Linux.
 
 ---
 
-## 5. Ciclo de Vida de Dados: Transição para "Cold Data"
+## 📑 Metodologia de Análise de Causa Raiz (RCA)
 
-Para evitar a degradação de *performance* em bases de dados transacionais, nós operamos a transição de instâncias de produção para instâncias de "Histórico" (*Read-Only*). 
+Após a normalização do ambiente, a fase de RCA assegura que o problema seja compreendido em profundidade. Cada evento relevante gera um relatório com a seguinte estrutura:
 
-Este processo envolve:
-* **Segmentação de Carga:** O tráfego transacional primário é desviado para o novo *cluster*.
-* **Adequação de Recursos:** O *tuning* do `my.cnf` do nó legado é ajustado para privilegiar leituras analíticas pesadas (relatórios) em vez de escritas.
-* **Desativação de Agentes:** Serviços paralelos (*Daemons* de integração) são desligados no nó legado para poupar processamento.
+1. **Linha do Tempo do Incidente:** Mapeamento cronológico desde o início da anomalia até a plena restauração do serviço.
+2. **Causa Primária Técnico-Operacional:** Identificação da falha de origem (ex: falta de índice combinada com um pico atípico de requisições ou falha na rotação de logs).
+3. **Ações de Mitigação (Curto Prazo):** Medidas imediatas adotadas para restabelecer a operação durante a crise.
+4. **Plano de Ação Definitivo (Longo Prazo):** Alterações na aplicação, criação de novos índices, ajustes de configuração de SGBD ou criação de alertas automatizados no Grafana para prevenir reincidências.
 
+---
+
+## 📊 Resultados e Valor para o Negócio
+
+* **Redução do Tempo de Resolução (MTTR):** Protocolos claros de diagnóstico reduzem a volatilidade durante crises e aceleram o restabelecimento de sistemas essenciais.
+* **Eliminação de Recorrências:** O compromisso com a Análise de Causa Raiz garante que a mesma falha não volte a afetar os processos corporativos.
+* **Previsibilidade e Estabilidade:** Ambientes ajustados e monitorados operam com margem de segurança, suportando picos de demanda sem degradação perceptível para os usuários finais.
+
+---
+
+&gt; **Princípio de Resiliência:** *"Tratar o sintoma devolve o sistema ao ar hoje; encontrar e corrigir a causa raiz garante que ele continue no ar amanhã."*
