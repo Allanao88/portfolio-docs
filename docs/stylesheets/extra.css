@@ -7,16 +7,16 @@
    1. CORES E VARIÁVEIS GLOBAIS (MODO CLARO)
    -------------------------------------------------------------------------- */
 :root {
-    /* Contraste e cores para Links */
-    --md-typeset-a-color: #2563eb;
-    /* Azul vibrante de alta visibilidade */
-    --md-typeset-a-color--hover: #1d4ed8;
-    /* Tom ligeiramente mais escuro no hover */
+    /* Contraste e cores para Links (Modo Claro) */
+    --md-typeset-a-color: #1d4ed8;
+    /* Azul mais forte e nítido */
+    --md-typeset-a-color--hover: #1e40af;
+    /* Azul escuro profundo no hover */
 
     /* Cores de marca e destaques */
     --md-primary-fg-color: #0f172a;
     /* Slate escuro corporativo */
-    --md-accent-fg-color: #2563eb;
+    --md-accent-fg-color: #1d4ed8;
     /* Azul de destaque */
 
     /* Bordas e Sombras de Cards */
@@ -29,11 +29,11 @@
    2. CORES E VARIÁVEIS PARA MODO ESCURO (SLATE THEME)
    -------------------------------------------------------------------------- */
 [data-md-color-scheme="slate"] {
-    /* Contraste Perfeito para Links em Fundo Escuro */
-    --md-typeset-a-color: #60a5fa;
-    /* Azul claro de alto contraste (WCAG AAA) */
-    --md-typeset-a-color--hover: #93c5fd;
-    /* Azul gelo brilhante no hover */
+    /* Contraste Elevado para Links em Fundo Escuro (Muito mais claros) */
+    --md-typeset-a-color: #93c5fd;
+    /* Azul claro brilhante (Slate 300/Blue 300) */
+    --md-typeset-a-color--hover: #bfdbfe;
+    /* Azul gelo/pastel de altíssima legibilidade no hover */
 
     /* Ajuste de fundos e elementos de superfície */
     --md-default-bg-color: #0f172a;
@@ -124,7 +124,7 @@
 
 [data-md-color-scheme="slate"] .md-typeset blockquote {
     background-color: rgba(30, 41, 59, 0.7);
-    border-left-color: #60a5fa;
+    border-left-color: #93c5fd;
 }
 
 /* --------------------------------------------------------------------------
@@ -139,13 +139,14 @@
 
 .md-typeset .md-button--primary {
     background-color: var(--md-typeset-a-color);
-    color: #ffffff !important;
+    color: #0f172a !important;
+    /* Texto escuro no botão claro se necessário, ou mantido branco dependendo do contraste */
     border: none;
 }
 
 .md-typeset .md-button--primary:hover {
     background-color: var(--md-typeset-a-color--hover);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 12px rgba(147, 197, 253, 0.3);
 }
 
 /* --------------------------------------------------------------------------
