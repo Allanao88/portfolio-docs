@@ -1,14 +1,12 @@
 :root {
+    /* Cores Principais */
     --md-primary-fg-color: #0f172a;
     --md-primary-fg-color--light: #1e293b;
     --md-primary-fg-color--dark: #020617;
-
     --md-accent-fg-color: #06b6d4;
-}
 
-/* Links */
-.md-typeset a {
-    color: #0891b2;
+    /* Links usando variável nativa do Material */
+    --md-typeset-a-color: #0891b2;
 }
 
 /* Código */
@@ -16,13 +14,13 @@ code {
     font-family: "JetBrains Mono", monospace;
 }
 
-/* Cards */
-.md-typeset .grid.cards>ul>li {
+/* Cards (Grid) */
+.md-typeset .grid.cards > ul > li {
     border-radius: 12px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.md-typeset .grid.cards>ul>li:hover {
+.md-typeset .grid.cards > ul > li:hover {
     transform: translateY(-3px);
 }
 
@@ -33,7 +31,7 @@ code {
 }
 
 .md-typeset h2 {
-    font-weight: 650;
+    font-weight: 600; /* Ajustado de 650 para o padrão web */
 }
 
 /* Header */
@@ -46,13 +44,13 @@ code {
     margin-top: 40px;
 }
 
-/* Tags */
+/* Botões e Tags */
 .md-typeset .md-button {
     border-radius: 8px;
     font-weight: 600;
 }
 
-/* Blocos de destaque */
+/* Blocos de destaque (Admonitions) */
 .md-typeset .admonition {
     border-radius: 10px;
 }
