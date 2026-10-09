@@ -1,0 +1,192 @@
+/* ==========================================================================
+   PORTFÓLIO - EXTRA.CSS (Material for MkDocs)
+   Design System & Custom Adjustments for Light and Dark (Slate) Themes
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CORES E VARIÁVEIS GLOBAIS (MODO CLARO)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Contraste e cores para Links (Modo Claro) */
+    --md-typeset-a-color: #1d4ed8;
+    /* Azul mais forte e nítido */
+    --md-typeset-a-color--hover: #1e40af;
+    /* Azul escuro profundo no hover */
+
+    /* Cores de marca e destaques */
+    --md-primary-fg-color: #0f172a;
+    /* Slate escuro corporativo */
+    --md-accent-fg-color: #1d4ed8;
+    /* Azul de destaque */
+
+    /* Bordas e Sombras de Cards */
+    --custom-card-border: rgba(226, 232, 240, 0.8);
+    --custom-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --custom-card-shadow-hover: 0 10px 15px -3px rgba(37, 99, 235, 0.12), 0 4px 6px -4px rgba(37, 99, 235, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   2. CORES E VARIÁVEIS PARA MODO ESCURO (SLATE THEME)
+   -------------------------------------------------------------------------- */
+[data-md-color-scheme="slate"] {
+    /* Contraste Elevado para Links em Fundo Escuro (Muito mais claros) */
+    --md-typeset-a-color: #93c5fd;
+    /* Azul claro brilhante (Slate 300/Blue 300) */
+    --md-typeset-a-color--hover: #bfdbfe;
+    /* Azul gelo/pastel de altíssima legibilidade no hover */
+
+    /* Ajuste de fundos e elementos de superfície */
+    --md-default-bg-color: #0f172a;
+    /* Slate 900 */
+    --md-default-fg-color: #f8fafc;
+    /* Slate 50 (Texto ultra legível) */
+    --md-default-fg-color--light: #cbd5e1;
+    /* Slate 300 */
+
+    /* Bordas e Sombras em modo escuro */
+    --custom-card-border: rgba(51, 65, 85, 0.7);
+    --custom-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --custom-card-shadow-hover: 0 10px 20px -3px rgba(96, 165, 250, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   3. ESTILIZAÇÃO DE LINKS E NAVEGAÇÃO
+   -------------------------------------------------------------------------- */
+.md-typeset a {
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.md-typeset a:hover {
+    border-bottom-color: currentColor;
+}
+
+/* Links dentro de títulos não usam sublinhado forçado */
+.md-typeset h1 a,
+.md-typeset h2 a,
+.md-typeset h3 a {
+    border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. CARDS E GRIDS (.grid.cards)
+   -------------------------------------------------------------------------- */
+.md-typeset .grid.cards>ol>li,
+.md-typeset .grid.cards>ul>li,
+.md-typeset .card {
+    border: 1px solid var(--custom-card-border);
+    border-radius: 10px;
+    box-shadow: var(--custom-card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    background-color: var(--md-default-bg-color--card, var(--md-default-bg-color));
+}
+
+.md-typeset .grid.cards>ol>li:hover,
+.md-typeset .grid.cards>ul>li:hover,
+.md-typeset .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--custom-card-shadow-hover);
+    border-color: var(--md-typeset-a-color);
+}
+
+/* --------------------------------------------------------------------------
+   5. BADGES, TAGS E CÓDIGOS EM LINHA (code)
+   -------------------------------------------------------------------------- */
+.md-typeset code {
+    font-family: var(--md-code-font-family, monospace);
+    font-size: 0.85em;
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    background-color: rgba(100, 116, 139, 0.15);
+    color: var(--md-default-fg-color);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+    background-color: rgba(51, 65, 85, 0.6);
+    border-color: rgba(148, 163, 184, 0.2);
+    color: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   6. BLOCOS DE CITAÇÃO E PRINCÍPIOS DE ENGENHARIA (BLOCKQUOTE)
+   -------------------------------------------------------------------------- */
+.md-typeset blockquote {
+    border-left: 4px solid var(--md-typeset-a-color);
+    padding: 0.8rem 1.2rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    background-color: rgba(37, 99, 235, 0.04);
+    color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+    background-color: rgba(30, 41, 59, 0.7);
+    border-left-color: #93c5fd;
+}
+
+/* --------------------------------------------------------------------------
+   7. BOTÕES PERSONALIZADOS (.md-button)
+   -------------------------------------------------------------------------- */
+.md-typeset .md-button {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.5em 1.2em;
+    transition: all 0.2s ease;
+}
+
+.md-typeset .md-button--primary {
+    background-color: var(--md-typeset-a-color);
+    color: #0f172a !important;
+    /* Texto escuro no botão claro se necessário, ou mantido branco dependendo do contraste */
+    border: none;
+}
+
+.md-typeset .md-button--primary:hover {
+    background-color: var(--md-typeset-a-color--hover);
+    box-shadow: 0 4px 12px rgba(147, 197, 253, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   8. TABELAS DE DADOS
+   -------------------------------------------------------------------------- */
+.md-typeset table:not([class]) {
+    font-size: 0.9rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--custom-card-shadow);
+    border: 1px solid var(--custom-card-border);
+}
+
+.md-typeset table:not([class]) th {
+    background-color: rgba(15, 23, 42, 0.05);
+    font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+    background-color: rgba(30, 41, 59, 0.9);
+    color: #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   9. BARRA DE ROLAGEM CUSTOMIZADA (SCROLLBAR)
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--md-default-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.4);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--md-typeset-a-color);
+}
