@@ -61,6 +61,8 @@ nav:
       - Visão geral: projetos/index.md
       - Portal de Observabilidade DBA + IA: projetos/portal-monitorizacao.md
       - Arquitetura Apache Airflow: projetos/airflow-observabilidade.md
+      - Site Institucional AKS - Tech: projetos/aks-tech-site.md
+      - CRM Lead Flow: projetos/crm-lead-flow.md
   - DBA & Dados:
       - Resiliência e RCA: dba/resiliencia-rca.md
       - Scripts e Automações: dba/scripts.md

@@ -57,3 +57,19 @@ Mapeamento de processos corporativos, automação de fluxos de trabalho (*busine
 ## 📌 Como Navegar pelos Cases
 
 Utilize os links acima para explorar cada projeto individualmente e analisar as abordagens técnicas, decisões de arquitetura e impactos operacionais de cada solução.
+
+---
+
+## 🌐 Produtos Digitais — AKS - Tech
+
+### 07 · [Site Institucional AKS - Tech](aks-tech-site.md)
+
+Site institucional desenvolvido para apresentar a empresa e sua identidade digital.
+
+* **Tecnologias:** `React` · `TypeScript` · `Vite` · `CSS` · `Vercel`
+
+### 08 · [CRM Lead Flow](crm-lead-flow.md)
+
+Aplicação de gestão comercial com módulos de leads, contatos, empresas e estoque, apoiada por Supabase e PostgreSQL.
+
+* **Tecnologias:** `React` · `TypeScript` · `Supabase` · `PostgreSQL` · `RLS` · `Vercel`

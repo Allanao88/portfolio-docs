@@ -1,192 +1,291 @@
-/* ==========================================================================
-   PORTFÓLIO - EXTRA.CSS (Material for MkDocs)
-   Design System & Custom Adjustments for Light and Dark (Slate) Themes
-   ========================================================================== */
+/* Identidade visual AKS - Tech aplicada ao portfólio pessoal. */
 
-/* --------------------------------------------------------------------------
-   1. CORES E VARIÁVEIS GLOBAIS (MODO CLARO)
-   -------------------------------------------------------------------------- */
 :root {
-    /* Contraste e cores para Links (Modo Claro) */
-    --md-typeset-a-color: #1d4ed8;
-    /* Azul mais forte e nítido */
-    --md-typeset-a-color--hover: #1e40af;
-    /* Azul escuro profundo no hover */
+  --aks-bg: #111111;
+  --aks-surface: #1a1a1a;
+  --aks-surface-hover: #242424;
+  --aks-primary: #ccff00;
+  --aks-text: #f5f5f5;
+  --aks-muted: #a3a3a3;
+  --aks-border: #333333;
 
-    /* Cores de marca e destaques */
-    --md-primary-fg-color: #0f172a;
-    /* Slate escuro corporativo */
-    --md-accent-fg-color: #1d4ed8;
-    /* Azul de destaque */
-
-    /* Bordas e Sombras de Cards */
-    --custom-card-border: rgba(226, 232, 240, 0.8);
-    --custom-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --custom-card-shadow-hover: 0 10px 15px -3px rgba(37, 99, 235, 0.12), 0 4px 6px -4px rgba(37, 99, 235, 0.12);
+  --md-primary-fg-color: var(--aks-bg);
+  --md-primary-fg-color--light: var(--aks-surface-hover);
+  --md-primary-fg-color--dark: #080808;
+  --md-accent-fg-color: var(--aks-primary);
+  --md-typeset-a-color: #547000;
+  --custom-card-border: #d9dfc5;
+  --custom-card-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  --custom-card-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* --------------------------------------------------------------------------
-   2. CORES E VARIÁVEIS PARA MODO ESCURO (SLATE THEME)
-   -------------------------------------------------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #f7f8f4;
+  --md-default-fg-color: #20221d;
+  --md-default-fg-color--light: #62665b;
+  --md-default-fg-color--lighter: #85897e;
+  --md-default-fg-color--lightest: #e3e6dc;
+  --md-code-bg-color: #ecefe6;
+  --md-typeset-a-color: #547000;
+  --custom-card-border: #d9dfc5;
+  --custom-card-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  --custom-card-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
 [data-md-color-scheme="slate"] {
-    /* Contraste Elevado para Links em Fundo Escuro (Muito mais claros) */
-    --md-typeset-a-color: #93c5fd;
-    /* Azul claro brilhante (Slate 300/Blue 300) */
-    --md-typeset-a-color--hover: #bfdbfe;
-    /* Azul gelo/pastel de altíssima legibilidade no hover */
-
-    /* Ajuste de fundos e elementos de superfície */
-    --md-default-bg-color: #0f172a;
-    /* Slate 900 */
-    --md-default-fg-color: #f8fafc;
-    /* Slate 50 (Texto ultra legível) */
-    --md-default-fg-color--light: #cbd5e1;
-    /* Slate 300 */
-
-    /* Bordas e Sombras em modo escuro */
-    --custom-card-border: rgba(51, 65, 85, 0.7);
-    --custom-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    --custom-card-shadow-hover: 0 10px 20px -3px rgba(96, 165, 250, 0.18);
+  --md-default-bg-color: var(--aks-bg);
+  --md-default-fg-color: var(--aks-text);
+  --md-default-fg-color--light: #d0d0d0;
+  --md-default-fg-color--lighter: #a3a3a3;
+  --md-default-fg-color--lightest: #454545;
+  --md-code-bg-color: #202020;
+  --md-primary-bg-color: var(--aks-bg);
+  --md-primary-fg-color: var(--aks-text);
+  --md-accent-fg-color: var(--aks-primary);
+  --md-typeset-a-color: var(--aks-primary);
+  --custom-card-border: var(--aks-border);
+  --custom-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --custom-card-shadow-hover: 0 14px 34px rgba(0, 0, 0, 0.35);
 }
 
-/* --------------------------------------------------------------------------
-   3. ESTILIZAÇÃO DE LINKS E NAVEGAÇÃO
-   -------------------------------------------------------------------------- */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.md-header,
+.md-tabs {
+  background-color: var(--aks-bg);
+}
+
+.md-header {
+  border-bottom: 1px solid var(--aks-border);
+}
+
+.md-header__title,
+.md-tabs__link {
+  font-weight: 600;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover,
+.md-header .md-icon:hover {
+  color: var(--aks-primary);
+}
+
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover {
+  color: var(--md-accent-fg-color);
+}
+
 .md-typeset a {
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: color 0.2s ease, border-color 0.2s ease;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .md-typeset a:hover {
-    border-bottom-color: currentColor;
+  color: var(--md-accent-fg-color);
 }
 
-/* Links dentro de títulos não usam sublinhado forçado */
-.md-typeset h1 a,
-.md-typeset h2 a,
-.md-typeset h3 a {
-    border-bottom: none;
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-weight: 650;
+  letter-spacing: -0.025em;
 }
 
-/* --------------------------------------------------------------------------
-   4. CARDS E GRIDS (.grid.cards)
-   -------------------------------------------------------------------------- */
-.md-typeset .grid.cards>ol>li,
-.md-typeset .grid.cards>ul>li,
+.md-typeset h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.md-typeset h2 {
+  margin-top: 2rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .grid.cards > ol > li,
+.md-typeset .grid.cards > ul > li,
 .md-typeset .card {
-    border: 1px solid var(--custom-card-border);
-    border-radius: 10px;
-    box-shadow: var(--custom-card-shadow);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    background-color: var(--md-default-bg-color--card, var(--md-default-bg-color));
+  overflow: hidden;
+  border: 1px solid var(--custom-card-border);
+  border-radius: 14px;
+  background: var(--md-default-bg-color);
+  box-shadow: var(--custom-card-shadow);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
-.md-typeset .grid.cards>ol>li:hover,
-.md-typeset .grid.cards>ul>li:hover,
+.md-typeset .grid.cards > ol > li:hover,
+.md-typeset .grid.cards > ul > li:hover,
 .md-typeset .card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--custom-card-shadow-hover);
-    border-color: var(--md-typeset-a-color);
+  transform: translateY(-3px);
+  border-color: var(--md-accent-fg-color);
+  box-shadow: var(--custom-card-shadow-hover);
 }
 
-/* --------------------------------------------------------------------------
-   5. BADGES, TAGS E CÓDIGOS EM LINHA (code)
-   -------------------------------------------------------------------------- */
-.md-typeset code {
-    font-family: var(--md-code-font-family, monospace);
-    font-size: 0.85em;
-    padding: 0.2em 0.4em;
-    border-radius: 6px;
-    background-color: rgba(100, 116, 139, 0.15);
-    color: var(--md-default-fg-color);
-    border: 1px solid rgba(100, 116, 139, 0.2);
-}
-
-[data-md-color-scheme="slate"] .md-typeset code {
-    background-color: rgba(51, 65, 85, 0.6);
-    border-color: rgba(148, 163, 184, 0.2);
-    color: #38bdf8;
-}
-
-/* --------------------------------------------------------------------------
-   6. BLOCOS DE CITAÇÃO E PRINCÍPIOS DE ENGENHARIA (BLOCKQUOTE)
-   -------------------------------------------------------------------------- */
-.md-typeset blockquote {
-    border-left: 4px solid var(--md-typeset-a-color);
-    padding: 0.8rem 1.2rem;
-    margin: 1.5rem 0;
-    border-radius: 0 8px 8px 0;
-    background-color: rgba(37, 99, 235, 0.04);
-    color: var(--md-default-fg-color);
-}
-
-[data-md-color-scheme="slate"] .md-typeset blockquote {
-    background-color: rgba(30, 41, 59, 0.7);
-    border-left-color: #93c5fd;
-}
-
-/* --------------------------------------------------------------------------
-   7. BOTÕES PERSONALIZADOS (.md-button)
-   -------------------------------------------------------------------------- */
 .md-typeset .md-button {
-    border-radius: 8px;
-    font-weight: 600;
-    padding: 0.5em 1.2em;
-    transition: all 0.2s ease;
+  min-height: 2.5rem;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  border: 1px solid var(--md-accent-fg-color);
+  font-weight: 650;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .md-typeset .md-button--primary {
-    background-color: var(--md-typeset-a-color);
-    color: #0f172a !important;
-    /* Texto escuro no botão claro se necessário, ou mantido branco dependendo do contraste */
-    border: none;
+  background: var(--md-accent-fg-color);
+  color: #111111 !important;
 }
 
-.md-typeset .md-button--primary:hover {
-    background-color: var(--md-typeset-a-color--hover);
-    box-shadow: 0 4px 12px rgba(147, 197, 253, 0.3);
+.md-typeset .md-button:hover {
+  transform: translateY(-1px);
 }
 
-/* --------------------------------------------------------------------------
-   8. TABELAS DE DADOS
-   -------------------------------------------------------------------------- */
+.md-typeset code {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.85em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  color: var(--aks-primary);
+  background: #202020;
+}
+
+.md-typeset pre > code {
+  border: 0;
+}
+
+.md-typeset pre {
+  border: 1px solid var(--custom-card-border);
+  border-radius: 12px;
+}
+
+.md-typeset blockquote {
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.2rem;
+  border-left: 3px solid var(--md-accent-fg-color);
+  border-radius: 0 10px 10px 0;
+  background: var(--md-code-bg-color);
+}
+
 .md-typeset table:not([class]) {
-    font-size: 0.9rem;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--custom-card-shadow);
-    border: 1px solid var(--custom-card-border);
+  display: block;
+  overflow-x: auto;
+  border: 1px solid var(--custom-card-border);
+  border-radius: 10px;
+  box-shadow: var(--custom-card-shadow);
 }
 
 .md-typeset table:not([class]) th {
-    background-color: rgba(15, 23, 42, 0.05);
-    font-weight: 600;
+  font-weight: 650;
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
-    background-color: rgba(30, 41, 59, 0.9);
-    color: #f8fafc;
+  background: var(--aks-surface-hover);
 }
 
-/* --------------------------------------------------------------------------
-   9. BARRA DE ROLAGEM CUSTOMIZADA (SCROLLBAR)
-   -------------------------------------------------------------------------- */
+.md-search__form {
+  border-radius: 10px;
+}
+
+.md-footer {
+  border-top: 1px solid var(--custom-card-border);
+}
+
+.md-typeset :focus-visible,
+.md-nav__link:focus-visible,
+.md-tabs__link:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: #111111;
+  background: var(--aks-primary);
+}
+
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--md-default-bg-color);
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.4);
-    border-radius: 4px;
+  border-radius: 8px;
+  background: #777777;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--md-typeset-a-color);
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--aks-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Correção de contraste do cabeçalho e navegação */
+.md-header,
+.md-tabs {
+  background-color: #111111;
+  color: #f5f5f5;
+}
+
+.md-header__title,
+.md-header__button,
+.md-header__topic,
+.md-header .md-icon,
+.md-tabs__link {
+  color: #f5f5f5;
+}
+
+.md-header__button:hover,
+.md-header .md-icon:hover,
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  color: #ccff00;
+}
+
+.md-nav__link {
+  color: var(--md-default-fg-color);
+}
+
+.md-nav__link--active,
+.md-nav__link:hover,
+.md-nav__link:focus {
+  color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-tabs__link,
+[data-md-color-scheme="slate"] .md-header__title,
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #f5f5f5;
+}
+
+[data-md-color-scheme="default"] .md-typeset a:not(.md-button) {
+  color: #547000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-button) {
+  color: #ccff00;
 }

@@ -1,4 +1,9 @@
+# Ambientes virtuais Python
+.venv/
 venv/
-site/
-.cache/
+
+# Saída gerada pelo MkDocs
+/site/
+
+# Cache
 .cache/
