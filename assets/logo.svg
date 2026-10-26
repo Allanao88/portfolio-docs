@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Fundo sólido Cyan para dar destaque na aba do navegador -->
+  <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" fill="#06b6d4" />
+  
+  <!-- Linhas vazadas / escuras (Pipelines) -->
+  <polyline points="100,20 100,100 170,60" fill="none" stroke="#0f172a" stroke-width="16" stroke-linejoin="round" />
+  <line x1="100" y1="100" x2="30" y2="60" stroke="#0f172a" stroke-width="16" />
+  <line x1="100" y1="100" x2="100" y2="180" stroke="#0f172a" stroke-width="16" />
+  
+  <!-- Nodo Central robusto -->
+  <circle cx="100" cy="100" r="24" fill="#06b6d4" stroke="#0f172a" stroke-width="12" />
+</svg>
